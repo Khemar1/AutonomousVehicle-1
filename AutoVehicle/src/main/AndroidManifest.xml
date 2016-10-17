@@ -17,7 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".Mapping" />
-        <activity android:name=".RemoteControl" />
+       <activity android:name=".RemoteControl" />
         <activity android:name=".Auto" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".MenuActivity"></activity>
