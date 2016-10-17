@@ -22,7 +22,7 @@ public class MenuActivity extends AppCompatActivity {
                 startActivity(iAuto);
             }
         });
-
+//
         Button map = (Button) findViewById(R.id.bMapping);
 
         map.setOnClickListener(new View.OnClickListener() {
