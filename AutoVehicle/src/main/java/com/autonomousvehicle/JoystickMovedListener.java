@@ -5,9 +5,7 @@ package com.autonomousvehicle;
  */
 
 public interface JoystickMovedListener {
-
         public void OnMoved(int pan, int tilt);
-
         public void OnReleased();
 }
 
