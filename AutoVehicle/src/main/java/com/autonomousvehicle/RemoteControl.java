@@ -17,6 +17,6 @@ public class RemoteControl extends AppCompatActivity {
         setContentView(R.layout.activity_remote_control);
 
         actionBar.setDisplayHomeAsUpEnabled(true);
-        //joyStickCanvas = (JoystickView) findViewById(R.id.joystick);
+        joyStickCanvas = (JoystickView) findViewById(R.id.joystick);
     }
 }
