@@ -31,6 +31,8 @@ public class Auto extends AppCompatActivity {
                 // User chose the "Settings" item, show the app settings UI...
                 return true;
 
+            case android.R.id.home:
+                Auto.this.onBackPressed();
 
             default:
                 // If we got here, the user's action was not recognized.
