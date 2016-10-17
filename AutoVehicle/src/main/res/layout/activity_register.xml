@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:tools="http://schemas.android.com/tools" android:id="@+id/activity_login"
-android:layout_width="match_parent" android:layout_height="match_parent"
+xmlns:tools="http://schemas.android.com/tools"
+android:id="@+id/activity_register"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
 android:paddingBottom="@dimen/activity_vertical_margin"
 android:paddingLeft="@dimen/activity_horizontal_margin"
 android:paddingRight="@dimen/activity_horizontal_margin"
 android:paddingTop="@dimen/activity_vertical_margin"
-tools:context="com.autonomousvehicle.LoginActivity">
+tools:context="com.autonomousvehicle.RegisterActivity">
 
 <LinearLayout
     android:orientation="vertical"
@@ -16,14 +18,15 @@ tools:context="com.autonomousvehicle.LoginActivity">
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="150dp">
+        android:layout_height="178dp">
 
-        <TextView
-            android:text="Enter Username"
+        <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:id="@+id/tvUsername" />
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/etName"
+            android:hint="Name" />
 
         <EditText
             android:layout_width="match_parent"
@@ -31,15 +34,7 @@ tools:context="com.autonomousvehicle.LoginActivity">
             android:inputType="textPersonName"
             android:ems="10"
             android:id="@+id/etUsername"
-
             android:hint="Username" />
-
-        <TextView
-            android:text="Enter Password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:id="@+id/tvPassword" />
 
         <EditText
             android:layout_width="match_parent"
@@ -53,22 +48,15 @@ tools:context="com.autonomousvehicle.LoginActivity">
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="145dp">
+        android:layout_height="match_parent">
 
         <Button
-            android:text="Log In"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/bSignIn"
-            android:layout_weight="1" />
-
-        <Button
-            android:text="Sign Up"
+            android:text="Register"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/bRegister"
             android:layout_weight="1" />
     </LinearLayout>
-</LinearLayout>
 
+</LinearLayout>
 </RelativeLayout>
