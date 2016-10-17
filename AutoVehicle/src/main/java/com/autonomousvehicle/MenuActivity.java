@@ -1,3 +1,6 @@
+/**
+ * JBK.17
+ * */
 package com.autonomousvehicle;
 
 import android.content.Intent;
@@ -24,7 +27,7 @@ public class MenuActivity extends AppCompatActivity {
                 startActivity(iAuto);
             }
         });
-//
+
         Button map = (Button) findViewById(R.id.bMapping);
 
         map.setOnClickListener(new View.OnClickListener() {
@@ -52,8 +55,7 @@ public class MenuActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
-        menu.findItem(R.id.settings).setVisible(false);
-        menu.findItem(R.id.about).setVisible(false);
+
         return true;
     }
 
