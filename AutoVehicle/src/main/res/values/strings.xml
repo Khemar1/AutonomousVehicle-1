@@ -9,4 +9,5 @@
     <string name="remoteMsg">Have Contorl over it</string>
     <string name="bMapping">Mapping</string>
     <string name="mappingMsg">Get the mapped area from hardware</string>
+    <string name="logout">logout</string>
 </resources>
