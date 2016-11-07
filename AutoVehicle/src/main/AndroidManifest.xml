@@ -11,16 +11,22 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".LoginActivity">
+
+        </activity>
+        <activity android:name=".Mapping"
+            android:parentActivityName="com.autonomousvehicle.MenuActivity"
+            android:label="@string/mapping" >
+        </activity>
+       <activity android:name=".RemoteControl" />
+        <activity android:name=".RegisterActivity" />
+        <activity android:name=".MenuActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+
         </activity>
-        <activity android:name=".Mapping" />
-       <activity android:name=".RemoteControl" />
-        <activity android:name=".Auto" />
-        <activity android:name=".RegisterActivity" />
-        <activity android:name=".MenuActivity"></activity>
     </application>
 
 </manifest>

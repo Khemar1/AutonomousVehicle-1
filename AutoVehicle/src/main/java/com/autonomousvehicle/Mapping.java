@@ -1,5 +1,7 @@
 /**
- * JBK.17
+ * Bilal Alfanous
+ * N00994056
+ * Mapping/AutoVehicle
  * */
 package com.autonomousvehicle;
 
@@ -42,9 +44,7 @@ public class Mapping extends AppCompatActivity {
                 // If we got here, the user's action was not recognized.
                 // Invoke the superclass to handle it.
                 return super.onOptionsItemSelected(item);
-
         }
-
     }
 
 }

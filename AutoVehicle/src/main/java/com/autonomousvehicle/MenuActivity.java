@@ -18,15 +18,9 @@ public class MenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
-        Button auto = (Button) findViewById(R.id.bAuto);
 
-        auto.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent iAuto = new Intent(MenuActivity.this, Auto.class);
-                startActivity(iAuto);
-            }
-        });
+
+
 
         Button map = (Button) findViewById(R.id.bMapping);
 

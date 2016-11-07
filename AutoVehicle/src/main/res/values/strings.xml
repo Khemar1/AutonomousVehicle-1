@@ -10,4 +10,8 @@
     <string name="bMapping">Mapping</string>
     <string name="mappingMsg">Get the mapped area from hardware</string>
     <string name="logout">logout</string>
+    <string name="mapping">Mapping</string>
+    <string name="password">Password</string>
+    <string name="start">Start</string>
+    <string name="stop">Stop</string>
 </resources>

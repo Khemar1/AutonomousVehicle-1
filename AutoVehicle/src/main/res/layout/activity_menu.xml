@@ -23,20 +23,6 @@ tools:context="com.autonomousvehicle.MenuActivity">
         android:textAlignment="center" />
 
     <Button
-        android:text="@string/bAuto"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/bAuto"
-        android:layout_marginTop="55dp" />
-
-    <TextView
-        android:text="@string/autoMsg"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/tvAutoMsg"
-        android:textAlignment="center" />
-
-    <Button
         android:text="@string/bRemote"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
