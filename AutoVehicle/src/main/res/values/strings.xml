@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AutonomousVehicle</string>
+    <string name="app_name">Auto Vehicle</string>
     <string name="settings">Settings</string>
     <string name="about">About</string>
     <string name="menumsg">\t Please Select the mode \nyou\'d like to operate the robotic car in</string>
