@@ -25,7 +25,8 @@ class Sender extends Socket {
         try {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
             StrictMode.setThreadPolicy(policy);
-            socket = new Socket("192.168.15.113", 40093);
+            //socket = new Socket("192.168.15.113", 40093);
+            socket = new Socket("10.110.46.158", 40093);
             out = new PrintWriter(socket.getOutputStream(), true);
             remoteInput = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
