@@ -3,13 +3,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_margin="30dp"
-        android:orientation="vertical" >
+        android:orientation="vertical"
+        android:weightSum="1">
+
         <TextView
             android:id="@+id/textView1"
             android:layout_width="wrap_content"
@@ -45,7 +48,14 @@
             android:text="@string/direction"
             android:textColor="#444444"
             android:textSize="20dp" />
+
+        <Button
+            android:text="Close Connection"
+            android:layout_width="116dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/bClose" />
     </LinearLayout>
+
     <RelativeLayout
         android:id="@+id/layout_joystick"
         android:layout_width="200dp"
@@ -65,4 +75,5 @@
         android:id="@+id/textView"
         android:layout_below="@+id/layout_joystick"
         android:layout_toStartOf="@+id/layout_joystick" />
+
 </RelativeLayout>

@@ -13,9 +13,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import java.io.IOException;
 
 public class RemoteControl extends AppCompatActivity {
 
@@ -39,6 +42,7 @@ public class RemoteControl extends AppCompatActivity {
         textView3 = (TextView) findViewById(R.id.textView3);
         textView4 = (TextView) findViewById(R.id.textView4);
         textView5 = (TextView) findViewById(R.id.textView5);
+        Button close = (Button)findViewById(R.id.bClose);
 
         layout_joystick = (RelativeLayout) findViewById(R.id.layout_joystick);
 
@@ -50,6 +54,17 @@ public class RemoteControl extends AppCompatActivity {
         js.setStickAlpha(100);
         js.setOffset(90);
         js.setMinimumDistance(50);
+
+
+            close.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                        command.done();
+
+                }
+            });
+
 
         layout_joystick.setOnTouchListener(new View.OnTouchListener() {
             public boolean onTouch(View arg0, MotionEvent arg1) {
