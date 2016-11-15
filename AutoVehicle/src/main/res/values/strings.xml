@@ -12,8 +12,7 @@
     <string name="logout">logout</string>
     <string name="mapping">Mapping</string>
     <string name="password">Password</string>
-    <string name="start">Start</string>
-    <string name="stop">Stop</string>
+
     <string name="groupname">JBK.17</string>
     <string name="x">X:</string>
     <string name="y">Y:</string>
