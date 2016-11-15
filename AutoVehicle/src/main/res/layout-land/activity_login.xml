@@ -33,7 +33,7 @@
             android:textAlignment="center" />
 
         <Switch
-            android:text="Remember me"
+            android:text="@string/remember_me"
             android:layout_width="148dp"
             android:layout_height="wrap_content"
             android:id="@+id/sRemember"
@@ -41,7 +41,7 @@
             android:layout_marginLeft="520dp" />
 
         <Button
-            android:text="Sign In"
+            android:text="@string/sign_in"
             android:layout_width="183dp"
             android:layout_height="37dp"
             android:id="@+id/bSignIn"
@@ -50,7 +50,7 @@
             android:textColor="@android:color/background_light" />
 
         <TextView
-            android:text="Sign Up for an Account"
+            android:text="@string/sign_up_for_an_account"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@android:color/background_light"

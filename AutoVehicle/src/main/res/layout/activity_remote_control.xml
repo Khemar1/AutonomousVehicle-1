@@ -64,7 +64,7 @@
     </RelativeLayout>
 
     <TextView
-        android:text="Enter the IP Address of the Robot"
+        android:text="@string/enter_the_ip_address_of_the_robot"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/tvInfo"
@@ -88,7 +88,7 @@
         android:textColorHint="@android:color/darker_gray" />
 
     <Button
-        android:text="Connect"
+        android:text="@string/connect"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/bConnect"
@@ -98,7 +98,7 @@
         android:textColor="@android:color/background_light" />
 
     <Button
-        android:text="Close Connection"
+        android:text="@string/close_connection"
         android:layout_width="116dp"
         android:layout_height="wrap_content"
         android:id="@+id/bClose"

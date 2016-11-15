@@ -44,16 +44,16 @@ tools:context="com.autonomousvehicle.LoginActivity"
             android:textColorHint="@android:color/darker_gray" />
 
         <Switch
-            android:text="Remember me"
+            android:text="@string/remember_me"
             android:layout_width="148dp"
             android:layout_height="wrap_content"
             android:id="@+id/sRemember"
             android:textColor="@android:color/background_light"
             android:textAlignment="textStart"
-            android:layout_marginLeft="210dp" />
+            android:layout_marginLeft="180dp" />
 
         <Button
-            android:text="Sign In"
+            android:text="@string/sign_in"
             android:layout_width="284dp"
             android:layout_height="wrap_content"
             android:id="@+id/bSignIn"
@@ -64,7 +64,7 @@ tools:context="com.autonomousvehicle.LoginActivity"
             android:textColor="@android:color/background_light" />
 
         <TextView
-            android:text="Sign Up for an Account"
+            android:text="@string/sign_up_for_an_account"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@android:color/background_light"
