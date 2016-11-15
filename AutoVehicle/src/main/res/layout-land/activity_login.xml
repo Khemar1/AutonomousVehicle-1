@@ -6,7 +6,7 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="117dp">
+        android:layout_height="143dp">
 
     </FrameLayout>
 
@@ -22,7 +22,6 @@
             android:ems="10"
             android:hint="Username"
             android:id="@+id/etUsername"
-            android:layout_marginTop="28dp"
             android:layout_marginLeft="210dp"
             android:background="@android:color/transparent"
             android:textColor="@android:color/white"
@@ -49,7 +48,7 @@
             android:id="@+id/sRemember"
             android:textColor="@android:color/background_light"
             android:layout_marginLeft="282dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="8dp"
             />
 
         <Button
