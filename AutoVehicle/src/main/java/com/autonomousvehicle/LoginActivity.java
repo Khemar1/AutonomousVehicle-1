@@ -5,12 +5,15 @@ package com.autonomousvehicle;
 
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -38,6 +41,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         final EditText etuserName = (EditText)findViewById(R.id.etUsername);
         final EditText etpassword = (EditText)findViewById(R.id.etPassword);
@@ -120,5 +124,70 @@ public class LoginActivity extends AppCompatActivity {
                 queue.add(loginRequest);
             }
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.home:
+                //NavUtils.navigateUpFromSameTask(this);
+                String title = getResources().getString(R.string.abTitle);
+                String msg = getResources().getString(R.string.abMsg);
+                String yes = getResources().getString(R.string.yes);
+                String no = getResources().getString(R.string.no);
+
+
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+                // set title
+                alertDialogBuilder.setTitle(title);
+                // set dialog message
+                alertDialogBuilder
+                        .setMessage(msg)
+                        .setCancelable(false)
+                        .setPositiveButton(yes, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                // if this button is clicked, close
+                                // current activity
+                                LoginActivity.this.finish();
+
+                                //display in short period of time
+                                //Toast.makeText(getApplicationContext(), "Yes is clicked",
+                                //      Toast.LENGTH_LONG).show();
+                            }
+                        })
+
+                        .setNegativeButton(no, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                // if this button is clicked, just close
+                                // the dialog box and do nothing
+                                dialog.cancel();
+
+                                //display in short period of time
+                                //Toast.makeText(getApplicationContext(), "No is clicked",
+                                //   Toast.LENGTH_LONG).show();
+                            }
+                        });
+                // create alert dialog
+                AlertDialog alertDialog = alertDialogBuilder.create();
+
+                // show it
+                alertDialog.show();
+
+                return true;
+
+            default:
+                // If we got here, the user's action was not recognized.
+                // Invoke the superclass to handle it.
+                return super.onOptionsItemSelected(item);
+
+        }
     }
 }
