@@ -5,12 +5,22 @@
  * */
 package com.autonomousvehicle;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.app.Activity;
+import android.graphics.Color;
+import android.view.View;
 
 public class Mapping extends AppCompatActivity {
+    DrawView drawView;
+    Paint paint = new Paint();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,7 +28,16 @@ public class Mapping extends AppCompatActivity {
         setContentView(R.layout.activity_mapping);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        drawView = new DrawView(this);
+      //  drawView = (DrawView)findViewById(R.id.two_D_map_view);
+
+        drawView.setBackgroundColor(Color.WHITE);
+        setContentView(drawView);
+
+
     }
+
 
 
 
