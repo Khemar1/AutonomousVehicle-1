@@ -21,4 +21,6 @@
     <string name="abMsg">Are you sure you want to Exit?</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
+    <string name="stop">stop</string>
+    <string name="start">start</string>
 </resources>
