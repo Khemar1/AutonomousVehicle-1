@@ -1,15 +1,13 @@
+/**
+ * JBK.17
+ * */
 package com.autonomousvehicle;
 
 /**
  * Created by John Yalda on 2016-11-10.
  */
 
-/*
- * Jan Yalda, N01037094
- * CENG320 - Lab3
- * October 23, 2016
- * client.java
- * */
+
 
 import android.os.StrictMode;
 

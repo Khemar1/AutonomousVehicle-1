@@ -9,6 +9,8 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/AutoVehicle" />
+            <option value="$PROJECT_DIR$/AutoVehicle1" />
+            <option value="$PROJECT_DIR$/CanvasExample3" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

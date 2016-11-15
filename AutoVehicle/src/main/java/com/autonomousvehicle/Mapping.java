@@ -1,19 +1,26 @@
 /**
- * JBK.17
+ * Bilal Alfanous
+ * N00994056
+ * Mapping/AutoVehicle
  * */
 package com.autonomousvehicle;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.app.Activity;
+import android.graphics.Color;
 import android.view.View;
-import android.widget.Button;
-import android.widget.Chronometer;
 
 public class Mapping extends AppCompatActivity {
-
-    Chronometer mChronometer;
+    DrawView drawView;
+    Paint paint = new Paint();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,30 +29,17 @@ public class Mapping extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        Button button;
+        drawView = new DrawView(this);
+      //  drawView = (DrawView)findViewById(R.id.two_D_map_view);
 
-        mChronometer = (Chronometer) findViewById(R.id.chronometer);
+        drawView.setBackgroundColor(Color.WHITE);
+        setContentView(drawView);
 
-        button = (Button) findViewById(R.id.start);
-        button.setOnClickListener(mStartListener);
-
-        button = (Button) findViewById(R.id.stop);
-        button.setOnClickListener(mStopListener);
 
     }
 
 
-    View.OnClickListener mStartListener = new View.OnClickListener() {
-        public void onClick(View v) {
-            mChronometer.start();
-        }
-    };
 
-    View.OnClickListener mStopListener = new View.OnClickListener() {
-        public void onClick(View v) {
-            mChronometer.stop();
-        }
-    };
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -69,9 +63,7 @@ public class Mapping extends AppCompatActivity {
                 // If we got here, the user's action was not recognized.
                 // Invoke the superclass to handle it.
                 return super.onOptionsItemSelected(item);
-
         }
-
     }
 
 }
