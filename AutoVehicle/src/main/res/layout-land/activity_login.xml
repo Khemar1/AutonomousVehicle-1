@@ -46,7 +46,7 @@
         android:layout_width="197dp"
         android:layout_height="37dp"
         android:id="@+id/bSignIn"
-        android:background="@color/colorAccent"
+        android:background="@android:color/holo_orange_dark"
         android:layout_marginLeft="205dp" />
 
     <TextView
