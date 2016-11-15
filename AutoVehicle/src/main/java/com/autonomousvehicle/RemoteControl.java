@@ -76,7 +76,7 @@ public class RemoteControl extends AppCompatActivity {
             }
         });
 
-
+/*<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
         layout_joystick.setOnTouchListener(new View.OnTouchListener() {
             public boolean onTouch(View arg0, MotionEvent arg1) {
                 js.drawStick(arg1);
