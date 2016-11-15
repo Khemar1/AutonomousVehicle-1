@@ -79,48 +79,7 @@ class Sender extends Socket {
     }
 
     public static void main(String argv[]) throws IOException {
-        String message = null, gotMsg = null;
-       /* try {
-            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-            StrictMode.setThreadPolicy(policy);
-            socket = new Socket("192.168.15.113", 40093);
-            out = new PrintWriter(socket.getOutputStream(), true);
-            remoteInput = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
-        } catch (IOException e) {
-            //System.out.println("Could not send to " + machineName + ":"+ port);
-            e.printStackTrace();
-            System.exit(-1);
-        }
-*/
-        /*if(argv.length<2)
-		{
-			System.err.println("Useage:  Sender hostname port");
-			System.exit(-1);
-		}*/
 
-        // BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
-        //System.out.println("Remote host: " + argv[0] + " Port: " + argv[1]);
-        // Sender sender = new Sender();
-
-       /* while(true)
-        {
-            sender.send(message);
-            //send msg to server
-            //System.out.print("Enter msg: ");
-           // message = input.readLine();
-            //if msg entered is quit close the socket DOESNT WORK!
-           /* if(message.equals("quit"))
-            {
-                sender.send(message);
-                sender.done();
-                //socket.close();
-            }else
-            {
-                sender.send(message);
-                //get the msg send from server & print it out
-                //System.out.println("Msg from server: "+sender.getit());
-            }*/
-        /*}*/
     }
 }

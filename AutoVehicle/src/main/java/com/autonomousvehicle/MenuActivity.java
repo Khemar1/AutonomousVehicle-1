@@ -20,16 +20,6 @@ public class MenuActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        Button auto = (Button) findViewById(R.id.bAuto);
-
-        auto.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent iAuto = new Intent(MenuActivity.this, Auto.class);
-                startActivity(iAuto);
-            }
-        });
-
         Button map = (Button) findViewById(R.id.bMapping);
 
         map.setOnClickListener(new View.OnClickListener() {

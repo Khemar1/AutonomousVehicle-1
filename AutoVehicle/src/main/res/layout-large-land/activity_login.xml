@@ -44,7 +44,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/bSignIn"
         android:background="@android:color/holo_orange_dark"
-        android:layout_marginLeft="350dp" />
+        android:layout_marginLeft="350dp"
+        android:textColor="@android:color/background_light" />
 
     <TextView
         android:text="Sign Up for an Account"

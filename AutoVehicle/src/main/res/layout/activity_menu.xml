@@ -24,25 +24,13 @@ tools:context="com.autonomousvehicle.MenuActivity"
         android:textAlignment="center" />
 
     <Button
-        android:text="@string/bAuto"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/bAuto"
-        android:layout_marginTop="55dp" />
-
-    <TextView
-        android:text="@string/autoMsg"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/tvAutoMsg"
-        android:textAlignment="center" />
-
-    <Button
         android:text="@string/bRemote"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/bRemote"
-        android:layout_marginTop="30dp" />
+        android:layout_marginTop="30dp"
+        android:background="@android:color/holo_orange_dark"
+        android:textColor="@android:color/background_light" />
 
     <TextView
         android:text="@string/remoteMsg"
@@ -56,7 +44,9 @@ tools:context="com.autonomousvehicle.MenuActivity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/bMapping"
-        android:layout_marginTop="30dp" />
+        android:layout_marginTop="30dp"
+        android:background="@android:color/holo_orange_dark"
+        android:textColor="@android:color/background_light" />
 
     <TextView
         android:text="@string/mappingMsg"
