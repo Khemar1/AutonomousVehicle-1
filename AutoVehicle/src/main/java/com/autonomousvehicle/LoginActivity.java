@@ -63,9 +63,16 @@ public class LoginActivity extends AppCompatActivity {
         rememMe.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                loginPrefsEditor.putBoolean("saveLogin", true);
-                loginPrefsEditor.putString("username", etuserName.getText().toString());
-                loginPrefsEditor.commit();
+
+                if (isChecked) {
+                    loginPrefsEditor.putBoolean("saveLogin", true);
+                    loginPrefsEditor.putString("username", etuserName.getText().toString());
+                    loginPrefsEditor.commit();
+                } else {
+                    loginPrefsEditor.clear();
+                    loginPrefsEditor.commit();
+                }
+
             }
         });
         //still doestn work!

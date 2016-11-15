@@ -20,13 +20,14 @@ class Sender extends Socket {
     static Socket socket = null;
     static PrintWriter out = null;
     static BufferedReader remoteInput = null;
+    static String ipAddress = null;
 
     public Sender() {
         try {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
             StrictMode.setThreadPolicy(policy);
             //socket = new Socket("192.168.15.113", 40093);
-            socket = new Socket("169.254.239.23", 40093);
+            socket = new Socket(getIpAddress(), 40093);
             out = new PrintWriter(socket.getOutputStream(), true);
             remoteInput = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
@@ -38,6 +39,13 @@ class Sender extends Socket {
 
     }
 
+    public static void setIpAddress(String ipAddress) {
+        Sender.ipAddress = ipAddress;
+    }
+
+    public static String getIpAddress() {
+        return ipAddress;
+    }
 
     void send(String msg) {
         out.println(msg);
@@ -62,7 +70,7 @@ class Sender extends Socket {
     /*method to close the socket*/
     void done() {
         try {
-            socket.close();
+            Sender.socket.close();
             //System.out.println("Msg from server: "+msg);
         } catch (Exception e) {
             // TODO: handle exception
