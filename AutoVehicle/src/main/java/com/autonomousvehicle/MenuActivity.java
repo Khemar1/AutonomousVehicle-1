@@ -18,9 +18,7 @@ public class MenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
-
-
-
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         Button map = (Button) findViewById(R.id.bMapping);
 
@@ -59,6 +57,9 @@ public class MenuActivity extends AppCompatActivity {
             case R.id.logout:
                 Intent logout = new Intent(MenuActivity.this, LoginActivity.class);
                 startActivity(logout);
+
+            case android.R.id.home:
+                MenuActivity.this.onBackPressed();
 
             default:
                 // If we got here, the user's action was not recognized.
