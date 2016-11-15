@@ -1,7 +1,5 @@
 /**
- * Bilal Alfanous
- * N00994056
- * Mapping/AutoVehicle
+ * JBK.17
  * */
 package com.autonomousvehicle;
 
