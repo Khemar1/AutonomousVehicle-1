@@ -18,15 +18,7 @@ public class MenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
-        Button auto = (Button) findViewById(R.id.bAuto);
-
-        auto.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent iAuto = new Intent(MenuActivity.this, Auto.class);
-                startActivity(iAuto);
-            }
-        });
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         Button map = (Button) findViewById(R.id.bMapping);
 
@@ -65,6 +57,9 @@ public class MenuActivity extends AppCompatActivity {
             case R.id.logout:
                 Intent logout = new Intent(MenuActivity.this, LoginActivity.class);
                 startActivity(logout);
+
+            case android.R.id.home:
+                MenuActivity.this.onBackPressed();
 
             default:
                 // If we got here, the user's action was not recognized.

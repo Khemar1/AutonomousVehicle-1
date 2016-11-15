@@ -88,7 +88,9 @@ tools:context="com.autonomousvehicle.RegisterActivity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/bRegister"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:background="@android:color/holo_orange_dark"
+            android:textColor="@android:color/background_light" />
     </LinearLayout>
 
 </LinearLayout>

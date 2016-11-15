@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -28,7 +29,7 @@ public class RemoteControl extends AppCompatActivity {
 
     JoyStick js;
 
-   // Sender command = new Sender();
+    Sender command;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +43,9 @@ public class RemoteControl extends AppCompatActivity {
         textView3 = (TextView) findViewById(R.id.textView3);
         textView4 = (TextView) findViewById(R.id.textView4);
         textView5 = (TextView) findViewById(R.id.textView5);
-        Button close = (Button)findViewById(R.id.bClose);
+        final EditText IPAdd = (EditText) findViewById(R.id.etIpAdd);
+        Button close = (Button) findViewById(R.id.bClose);
+        final Button connect = (Button) findViewById(R.id.bConnect);
 
         layout_joystick = (RelativeLayout) findViewById(R.id.layout_joystick);
 
@@ -56,14 +59,22 @@ public class RemoteControl extends AppCompatActivity {
         js.setMinimumDistance(50);
 
 
-            close.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
+        connect.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                command.setIpAddress(IPAdd.getText().toString());
+                command = new Sender();
+            }
+        });
 
-                    //    command.done();
+        close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-                }
-            });
+                command.done();
+
+            }
+        });
 
 /*<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
         layout_joystick.setOnTouchListener(new View.OnTouchListener() {
@@ -78,24 +89,26 @@ public class RemoteControl extends AppCompatActivity {
 
                     int direction = js.get8Direction();
                     if (direction == JoyStick.STICK_UP) {
-                     //   command.send("upp");
+                       // command.send("upp");
                         textView5.setText("Direction : Up");
                     } else if (direction == JoyStick.STICK_UPRIGHT) {
+                       // command.send("pivrr");
                         textView5.setText("Direction : Up Right");
                     } else if (direction == JoyStick.STICK_RIGHT) {
-                      //  command.send("rightt");
+                       // command.send("rightt");
                         textView5.setText("Direction : Right");
                     } else if (direction == JoyStick.STICK_DOWNRIGHT) {
                         textView5.setText("Direction : Down Right");
                     } else if (direction == JoyStick.STICK_DOWN) {
-                      //  command.send("downn");
+                       // command.send("downn");
                         textView5.setText("Direction : Down");
                     } else if (direction == JoyStick.STICK_DOWNLEFT) {
                         textView5.setText("Direction : Down Left");
                     } else if (direction == JoyStick.STICK_LEFT) {
                         textView5.setText("Direction : Left");
-                      //  command.send("leftt");
+                     //   command.send("leftt");
                     } else if (direction == JoyStick.STICK_UPLEFT) {
+                      //  command.send("pivll");
                         textView5.setText("Direction : Up Left");
                     } else if (direction == JoyStick.STICK_NONE) {
                         textView5.setText("Direction : Center");
