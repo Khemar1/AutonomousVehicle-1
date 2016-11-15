@@ -17,4 +17,8 @@
     <string name="distance">Distance:</string>
     <string name="direction">Direction:</string>
     <string name="username" />
+    <string name="abTitle">Exiting the App</string>
+    <string name="abMsg">Are you sure you want to Exit?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
 </resources>
