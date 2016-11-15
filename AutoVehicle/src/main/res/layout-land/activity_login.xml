@@ -11,7 +11,7 @@
         android:ems="10"
         android:hint="Username"
         android:id="@+id/etUsername"
-        android:layout_marginTop="142dp"
+        android:layout_marginTop="130dp"
         android:layout_marginLeft="210dp"
         android:background="@android:color/transparent"
         android:textColor="@android:color/white"
