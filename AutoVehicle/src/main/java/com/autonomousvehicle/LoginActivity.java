@@ -137,7 +137,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.home:
+            case android.R.id.home:
                 //NavUtils.navigateUpFromSameTask(this);
                 String title = getResources().getString(R.string.abTitle);
                 String msg = getResources().getString(R.string.abMsg);
