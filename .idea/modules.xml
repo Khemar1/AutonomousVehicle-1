@@ -3,9 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/AutoVehicle/AutoVehicle.iml" filepath="$PROJECT_DIR$/AutoVehicle/AutoVehicle.iml" />
-      <module fileurl="file://$PROJECT_DIR$/AutoVehicle1/AutoVehicle1.iml" filepath="$PROJECT_DIR$/AutoVehicle1/AutoVehicle1.iml" />
       <module fileurl="file://$PROJECT_DIR$/AutonomousVehicle.iml" filepath="$PROJECT_DIR$/AutonomousVehicle.iml" />
-      <module fileurl="file://$PROJECT_DIR$/CanvasExample3/CanvasExample3.iml" filepath="$PROJECT_DIR$/CanvasExample3/CanvasExample3.iml" />
     </modules>
   </component>
 </project>

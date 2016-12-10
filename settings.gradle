@@ -1,1 +1,1 @@
-include ':AutoVehicle', ':AutoVehicle1', ':CanvasExample3'
+include ':AutoVehicle'
