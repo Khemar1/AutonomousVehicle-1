@@ -54,7 +54,7 @@ public class RegisterActivity extends AppCompatActivity {
                 if (Objects.equals(password, rePass)) {
 
                         passErr.setText("");
-
+//
                     if (name.isEmpty() || user_name.isEmpty() || password.isEmpty() || rePass.isEmpty()) {
 
                         if (name.isEmpty()) {
