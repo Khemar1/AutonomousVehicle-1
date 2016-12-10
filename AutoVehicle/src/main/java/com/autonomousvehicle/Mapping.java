@@ -1,5 +1,6 @@
 /**
- * JBK.17
+ * Bilal Alfanous
+ * N00994056
  * */
 package com.autonomousvehicle;
 
@@ -28,12 +29,7 @@ public class Mapping extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         drawView = new DrawView(this);
-      //  drawView = (DrawView)findViewById(R.id.two_D_map_view);
-
         drawView.setBackgroundColor(Color.WHITE);
-        setContentView(drawView);
-
-
     }
 
 
