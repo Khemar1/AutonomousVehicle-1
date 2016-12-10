@@ -103,15 +103,15 @@ public class LoginActivity extends AppCompatActivity {
                 boolean good = true;
 
                 if(username.isEmpty() && passsword.isEmpty()){
-                    Toast.makeText(getBaseContext(), "Both fields needed",
+                    Toast.makeText(getBaseContext(), R.string.bothreq,
                             Toast.LENGTH_LONG).show();
                     good = false;
                 }else if(username.isEmpty()){
-                    Toast.makeText(getBaseContext(), "Username needed",
+                    Toast.makeText(getBaseContext(), R.string.usernamereq,
                             Toast.LENGTH_LONG).show();
                     good = false;
                 }else if(passsword.isEmpty()){
-                    Toast.makeText(getBaseContext(), "Password needed",
+                    Toast.makeText(getBaseContext(), R.string.passwordreq,
                             Toast.LENGTH_LONG).show();
                     good = false;
                 }else if (good){
@@ -129,9 +129,9 @@ public class LoginActivity extends AppCompatActivity {
 
                                 } else {
                                     AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
-                                    builder.setTitle("The Username and password you entered did not match our records.")
-                                            .setMessage("Please double-check and try again.")
-                                            .setNegativeButton("Retry", null)
+                                    builder.setTitle(getString(R.string.recordmatch))
+                                            .setMessage(R.string.doublecheck)
+                                            .setNegativeButton(R.string.retry, null)
                                             .create()
                                             .show();
                                 }
@@ -154,8 +154,8 @@ public class LoginActivity extends AppCompatActivity {
     // Handle the Back Key
     public void onBackPressed() {
         new AlertDialog.Builder(this)
-                .setTitle("Do you want to exit?")
-                .setMessage("Are you sure you want to exit?")
+                .setTitle(R.string.exitquestion)
+                .setMessage(R.string.sure)
                 .setNegativeButton(android.R.string.no, null)
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface arg0, int arg1) {

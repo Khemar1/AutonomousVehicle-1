@@ -19,7 +19,7 @@ public class SettingsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
-        getSupportActionBar().setTitle("Settings");
+        getSupportActionBar().setTitle(R.string.settings);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         ipAddress = (EditText) findViewById(R.id.etIPAddress);

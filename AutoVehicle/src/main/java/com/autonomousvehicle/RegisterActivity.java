@@ -89,8 +89,8 @@ public class RegisterActivity extends AppCompatActivity {
                                         startActivity(intent);
                                     } else {
                                         AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
-                                        builder.setMessage("Register Failed")
-                                                .setNegativeButton("Retry", null)
+                                        builder.setMessage(R.string.registerfail)
+                                                .setNegativeButton(R.string.retry, null)
                                                 .create()
                                                 .show();
                                     }

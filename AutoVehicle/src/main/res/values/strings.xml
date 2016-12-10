@@ -12,7 +12,6 @@
     <string name="logout">logout</string>
     <string name="mapping">Mapping</string>
     <string name="password">Password</string>
-
     <string name="groupname">JBK.17</string>
     <string name="x">X:</string>
     <string name="y">Y:</string>
@@ -52,5 +51,15 @@
     <string name="missingreenter">Passwords do not match</string>
     <string name="registerfail">Register Failed</string>
     <string name="retry">Retry</string>
+    <string name="exitquestion">Do you want to exit?</string>
+    <string name="sure">Are you sure you want to exit?</string>
+    <string name="recordmatch">The username and password you entered do not match our records</string>
+    <string name="doublecheck">Please double-check and try again</string>
+    <string name="usernamereq">User Name Needed</string>
+    <string name="passwordreq">Password Needed</string>
+    <string name="bothreq">Both fields need to be entered</string>
+    <string name="mainmenu">Main Menu</string>
+    <string name="ok">Ok</string>
+
 
 </resources>
