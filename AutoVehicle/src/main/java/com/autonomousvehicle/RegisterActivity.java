@@ -51,72 +51,63 @@ public class RegisterActivity extends AppCompatActivity {
                 final String user_name = etuserName.getText().toString();
                 final String password = etpassword.getText().toString();
                 final String rePass = etRePass.getText().toString();
-                boolean good = true;
-                if (name.isEmpty() || user_name.isEmpty() || password.isEmpty() || rePass.isEmpty()) {
+                if (Objects.equals(password, rePass)) {
 
-
-                    if (rePass.isEmpty()) {
-                        rePassErr.setText("*Missing Re-Password");
-                        good = false;
-                    } else {
-                        rePassErr.setText("");
-                    }if (name.isEmpty()) {
-                        nameErr.setText("*Missing Name");
-                        good = false;
-                    } else {
-                        nameErr.setText("");
-                    }
-                    if (user_name.isEmpty()) {
-                        uNameErr.setText("*Missing Username");
-                        good = false;
-                    } else {
-                        uNameErr.setText("");
-                    }
-                    if (password.isEmpty()) {
-                        passErr.setText("*Missing Password");
-                        good = false;
-                    } else {
                         passErr.setText("");
-                    }
-
-
-                }
-
-                if (Objects.equals(password, rePass) && good) {
-
-                    passErr.setText("");
 //
+                    if (name.isEmpty() || user_name.isEmpty() || password.isEmpty() || rePass.isEmpty()) {
 
-                    Response.Listener<String> responseListener = new Response.Listener<String>() {
-
-                        @Override
-                        public void onResponse(String response) {
-                            try {
-                                JSONObject jsonResponse = new JSONObject(response);
-                                boolean success = jsonResponse.getBoolean("success");
-
-                                if (success) {
-                                    Intent intent = new Intent(getBaseContext(), LoginActivity.class);
-                                    startActivity(intent);
-                                } else {
-                                    AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
-                                    builder.setMessage("Register Failed")
-                                            .setNegativeButton("Retry", null)
-                                            .create()
-                                            .show();
-                                }
-
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                            }
+                        if (name.isEmpty()) {
+                            nameErr.setText(getString(R.string.missingname));
+                        }else{
+                            nameErr.setText("");
+                        }if (user_name.isEmpty()) {
+                            uNameErr.setText(getString(R.string.missinguser));
+                        }else{
+                            uNameErr.setText("");
+                        }if (password.isEmpty()) {
+                            passErr.setText(getString(R.string.missingpassword));
+                        }else{
+                            passErr.setText("");
+                        }if (rePass.isEmpty()) {
+                            rePassErr.setText(getString(R.string.missingreenter));
+                        }else{
+                            rePassErr.setText("");
                         }
-                    };
 
-                    RegisterRequest registerRequest = new RegisterRequest(name, user_name, password, responseListener);
-                    RequestQueue queue = Volley.newRequestQueue(RegisterActivity.this);
-                    queue.add(registerRequest);
-                } else if (!Objects.equals(password, rePass)) {
-                    passErr.setText("*Passwords Dont match");
+                    } else {
+                        Response.Listener<String> responseListener = new Response.Listener<String>() {
+
+                            @Override
+                            public void onResponse(String response) {
+                                try {
+                                    JSONObject jsonResponse = new JSONObject(response);
+                                    boolean success = jsonResponse.getBoolean("success");
+
+                                    if (success) {
+                                        Intent intent = new Intent(getBaseContext(), LoginActivity.class);
+                                        startActivity(intent);
+                                    } else {
+                                        AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
+                                        builder.setMessage(getString(R.string.registerfail))
+                                                .setNegativeButton(R.string.retry, null)
+                                                .create()
+                                                .show();
+                                    }
+
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        };
+
+                        RegisterRequest registerRequest = new RegisterRequest(name, user_name, password, responseListener);
+                        RequestQueue queue = Volley.newRequestQueue(RegisterActivity.this);
+                        queue.add(registerRequest);
+                    }
+                }else if (!Objects.equals(password, rePass)){
+                    passErr.setText(getString(R.string.missingreenter));
+
                 }
 
             }
