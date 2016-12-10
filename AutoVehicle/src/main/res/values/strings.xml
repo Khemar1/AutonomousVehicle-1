@@ -38,5 +38,13 @@
     <string name="RemoteActivity" translatable="false">Remote Control</string>
     <string name="Register">Register</string>
     <string name="center">Center</string>
+    <string name="up">Up</string>
+    <string name="down">Down</string>
+    <string name="left">Left</string>
+    <string name="right">Right</string>
+    <string name="upright">Up Right</string>
+    <string name="upleft">Up Left</string>
+    <string name="downright">Down Right</string>
+    <string name="downleft">Down Left</string>
 
 </resources>
