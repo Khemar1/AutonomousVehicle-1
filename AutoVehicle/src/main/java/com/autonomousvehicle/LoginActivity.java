@@ -12,14 +12,18 @@ import android.preference.PreferenceManager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.CalendarView;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.Switch;
 import android.widget.TextView;
 
@@ -137,7 +141,13 @@ public class LoginActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
-
+        /* hiding the overflow in this activity*/
+        MenuItem item = menu.findItem(R.id.settings);
+        MenuItem item2 = menu.findItem(R.id.logout);
+        MenuItem item3 = menu.findItem(R.id.about);
+        item.setVisible(false);
+        item2.setVisible(false);
+        item3.setVisible(false);
         return true;
     }
 
@@ -189,7 +199,6 @@ public class LoginActivity extends AppCompatActivity {
                 alertDialog.show();
 
                 return true;
-
             default:
                 // If we got here, the user's action was not recognized.
                 // Invoke the superclass to handle it.

@@ -3,6 +3,7 @@
  * */
 package com.autonomousvehicle;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -21,6 +22,7 @@ public class Mapping extends AppCompatActivity {
         setContentView(R.layout.activity_mapping);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Mapping");
 
         Button button;
 
@@ -61,6 +63,10 @@ public class Mapping extends AppCompatActivity {
             case R.id.about:
                 // User chose the "Settings" item, show the app settings UI...
                 return true;
+
+            case R.id.settings:
+                Intent setting = new Intent(Mapping.this, SettingsActivity.class);
+                startActivity(setting);
 
             case android.R.id.home:
                 Mapping.this.onBackPressed();
