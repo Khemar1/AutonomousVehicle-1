@@ -109,4 +109,26 @@
         android:layout_below="@+id/tvInfo"
         android:layout_alignStart="@+id/bConnect" />
 
+    <TextView
+        android:text="@string/direction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/layout_joystick"
+        android:layout_alignStart="@+id/bConnect"
+        android:layout_marginBottom="38dp"
+        android:id="@+id/direction"
+        android:textStyle="normal|bold"
+        android:textColor="@color/colorFABText"
+        android:textSize="18sp" />
+
+    <TextView
+        android:text="@string/center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/directiontv"
+        android:textColor="@color/colorFABText"
+        android:fontFamily="casual"
+        android:layout_alignTop="@+id/direction"
+        android:layout_toEndOf="@+id/bConnect" />
+
 </RelativeLayout>

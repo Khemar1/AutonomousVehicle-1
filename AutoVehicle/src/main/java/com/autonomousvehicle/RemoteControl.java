@@ -45,7 +45,7 @@ public class RemoteControl extends AppCompatActivity {
         textView3 = (TextView) findViewById(R.id.textView3);
         textView4 = (TextView) findViewById(R.id.textView4);
         textView5 = (TextView) findViewById(R.id.textView5);*/
-        final EditText IPAdd = (EditText) findViewById(R.id.IpAdd);
+        final TextView IPAdd = (EditText) findViewById(R.id.IpAdd);
         Button close = (Button) findViewById(R.id.bClose);
         final Button connect = (Button) findViewById(R.id.bConnect);
 
