@@ -46,5 +46,11 @@
     <string name="upleft">Up Left</string>
     <string name="downright">Down Right</string>
     <string name="downleft">Down Left</string>
+    <string name="missingname">Missing Name</string>
+    <string name="missinguser">Missing User Name</string>
+    <string name="missingpassword">Missing Password</string>
+    <string name="missingreenter">Passwords do not match</string>
+    <string name="registerfail">Register Failed</string>
+    <string name="retry">Retry</string>
 
 </resources>

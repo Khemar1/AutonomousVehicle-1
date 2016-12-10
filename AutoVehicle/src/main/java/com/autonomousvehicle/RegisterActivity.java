@@ -58,19 +58,19 @@ public class RegisterActivity extends AppCompatActivity {
                     if (name.isEmpty() || user_name.isEmpty() || password.isEmpty() || rePass.isEmpty()) {
 
                         if (name.isEmpty()) {
-                            nameErr.setText("*Missing Name");
+                            nameErr.setText(getString(R.string.missingname));
                         }else{
                             nameErr.setText("");
                         }if (user_name.isEmpty()) {
-                            uNameErr.setText("*Missing Username");
+                            uNameErr.setText(getString(R.string.missinguser));
                         }else{
                             uNameErr.setText("");
                         }if (password.isEmpty()) {
-                            passErr.setText("*Missing Password");
+                            passErr.setText(getString(R.string.missingpassword));
                         }else{
                             passErr.setText("");
                         }if (rePass.isEmpty()) {
-                            rePassErr.setText("*Missing Re-Password");
+                            rePassErr.setText(getString(R.string.missingreenter));
                         }else{
                             rePassErr.setText("");
                         }
@@ -106,7 +106,7 @@ public class RegisterActivity extends AppCompatActivity {
                         queue.add(registerRequest);
                     }
                 }else if (!Objects.equals(password, rePass)){
-                    passErr.setText("*Passwords Dont match");
+                    passErr.setText(getString(R.string.missingreenter));
 
                 }
 
