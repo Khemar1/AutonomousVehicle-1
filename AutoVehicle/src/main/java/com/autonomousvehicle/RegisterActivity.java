@@ -52,35 +52,37 @@ public class RegisterActivity extends AppCompatActivity {
                 final String password = etpassword.getText().toString();
                 final String rePass = etRePass.getText().toString();
                 boolean good = true;
-                if (name.isEmpty() || user_name.isEmpty() || password.isEmpty() || rePass.isEmpty()) {
+                 if (name.isEmpty() || user_name.isEmpty() || password.isEmpty() || rePass.isEmpty()) {
 
 
-                    if (rePass.isEmpty()) {
-                        rePassErr.setText("*Missing Re-Password");
-                        good = false;
-                    } else {
-                        rePassErr.setText("");
-                    }if (name.isEmpty()) {
-                        nameErr.setText("*Missing Name");
-                        good = false;
-                    } else {
-                        nameErr.setText("");
-                    }
-                    if (user_name.isEmpty()) {
-                        uNameErr.setText("*Missing Username");
-                        good = false;
-                    } else {
-                        uNameErr.setText("");
-                    }
-                    if (password.isEmpty()) {
-                        passErr.setText("*Missing Password");
-                        good = false;
-                    } else {
-                        passErr.setText("");
-                    }
-
-
+                if (name.isEmpty()) {
+                    nameErr.setText("*Missing Name");
+                    good = false;
                 }
+                 if (user_name.isEmpty()) {
+                    uNameErr.setText("*Missing Username");
+                    good = false;
+                }
+                 if  (password.isEmpty()) {
+                    passErr.setText("*Missing Password");
+                    good = false;
+                }
+                 if  (rePass.isEmpty()) {
+                    rePassErr.setText("*Missing Re-Password");
+                    good = false;
+                }
+                 if  (!Objects.equals(password, rePass)) {
+                    passErr.setText("*Passwords Dont match");
+                    good = false;
+                } else {
+//                    nameErr.setText("");
+//                    uNameErr.setText("");
+//                    passErr.setText("");
+//                    rePassErr.setText("");
+                }
+
+
+                 }
 
                 if (Objects.equals(password, rePass) && good) {
 
@@ -115,8 +117,6 @@ public class RegisterActivity extends AppCompatActivity {
                     RegisterRequest registerRequest = new RegisterRequest(name, user_name, password, responseListener);
                     RequestQueue queue = Volley.newRequestQueue(RegisterActivity.this);
                     queue.add(registerRequest);
-                } else if (!Objects.equals(password, rePass)) {
-                    passErr.setText("*Passwords Dont match");
                 }
 
             }
