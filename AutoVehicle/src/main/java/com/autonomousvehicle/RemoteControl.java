@@ -6,7 +6,11 @@ package com.autonomousvehicle;
 
 //import android.app.ActionBar;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -35,17 +39,57 @@ public class RemoteControl extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_remote_control);
+        getSupportActionBar().setTitle("Remote Control");
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        textView1 = (TextView) findViewById(R.id.textView1);
+        /*textView1 = (TextView) findViewById(R.id.textView1);
         textView2 = (TextView) findViewById(R.id.textView2);
         textView3 = (TextView) findViewById(R.id.textView3);
         textView4 = (TextView) findViewById(R.id.textView4);
-        textView5 = (TextView) findViewById(R.id.textView5);
+        textView5 = (TextView) findViewById(R.id.textView5);*/
         final EditText IPAdd = (EditText) findViewById(R.id.etIpAdd);
         Button close = (Button) findViewById(R.id.bClose);
         final Button connect = (Button) findViewById(R.id.bConnect);
+
+        SharedPreferences preferences2 = getSharedPreferences("ip", MODE_PRIVATE);
+        String name = preferences2.getString("ip", "");
+        if(!name.equalsIgnoreCase(""))
+        {
+            IPAdd.setText( name );  /* Edit the value here*/
+        }else{
+            String title = "Go To Settings!";
+            String msg = "Would you like to add an IP Address?";
+            String yes = "Yes";
+            String no = "Later";
+
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+            // set title
+            alertDialogBuilder.setTitle(title);
+            // set dialog message
+            alertDialogBuilder
+                    .setMessage(msg)
+                    .setCancelable(false)
+                    .setPositiveButton(yes, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            Intent in = new Intent(RemoteControl.this, SettingsActivity.class);
+                            startActivity(in);
+                        }
+                    })
+
+                    .setNegativeButton(no, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.cancel();
+
+                        }
+                    });
+            // create alert dialog
+            AlertDialog alertDialog = alertDialogBuilder.create();
+
+            // show it
+            alertDialog.show();
+        }
+
 
         layout_joystick = (RelativeLayout) findViewById(R.id.layout_joystick);
 
@@ -82,43 +126,43 @@ public class RemoteControl extends AppCompatActivity {
                 js.drawStick(arg1);
                 if (arg1.getAction() == MotionEvent.ACTION_DOWN
                         || arg1.getAction() == MotionEvent.ACTION_MOVE) {
-                    textView1.setText("X : " + String.valueOf(js.getX()));
-                    textView2.setText("Y : " + String.valueOf(js.getY()));
-                    textView3.setText("Angle : " + String.valueOf(js.getAngle()));
-                    textView4.setText("Distance : " + String.valueOf(js.getDistance()));
+                    //textView1.setText("X : " + String.valueOf(js.getX()));
+                    //textView2.setText("Y : " + String.valueOf(js.getY()));
+                    //textView3.setText("Angle : " + String.valueOf(js.getAngle()));
+                    //textView4.setText("Distance : " + String.valueOf(js.getDistance()));
 
                     int direction = js.get8Direction();
                     if (direction == JoyStick.STICK_UP) {
                        // command.send("upp");
-                        textView5.setText("Direction : Up");
+                        //textView5.setText("Direction : Up");
                     } else if (direction == JoyStick.STICK_UPRIGHT) {
                        // command.send("pivrr");
-                        textView5.setText("Direction : Up Right");
+                       // textView5.setText("Direction : Up Right");
                     } else if (direction == JoyStick.STICK_RIGHT) {
                        // command.send("rightt");
-                        textView5.setText("Direction : Right");
+                       // textView5.setText("Direction : Right");
                     } else if (direction == JoyStick.STICK_DOWNRIGHT) {
-                        textView5.setText("Direction : Down Right");
+                       // textView5.setText("Direction : Down Right");
                     } else if (direction == JoyStick.STICK_DOWN) {
                        // command.send("downn");
-                        textView5.setText("Direction : Down");
+                        //textView5.setText("Direction : Down");
                     } else if (direction == JoyStick.STICK_DOWNLEFT) {
-                        textView5.setText("Direction : Down Left");
+                        //textView5.setText("Direction : Down Left");
                     } else if (direction == JoyStick.STICK_LEFT) {
-                        textView5.setText("Direction : Left");
+                        //textView5.setText("Direction : Left");
                      //   command.send("leftt");
                     } else if (direction == JoyStick.STICK_UPLEFT) {
                       //  command.send("pivll");
-                        textView5.setText("Direction : Up Left");
+                        //textView5.setText("Direction : Up Left");
                     } else if (direction == JoyStick.STICK_NONE) {
-                        textView5.setText("Direction : Center");
+                        //textView5.setText("Direction : Center");
                     }
                 } else if (arg1.getAction() == MotionEvent.ACTION_UP) {
-                    textView1.setText(R.string.x);
+                    /*textView1.setText(R.string.x);
                     textView2.setText(R.string.y);
                     textView3.setText(R.string.angle);
                     textView4.setText(R.string.distance);
-                    textView5.setText(R.string.direction);
+                    textView5.setText(R.string.direction);*/
                 }
                 return true;
             }
@@ -140,8 +184,12 @@ public class RemoteControl extends AppCompatActivity {
                 // User chose the "Settings" item, show the app settings UI...
                 return true;
 
-            case android.R.id.home:
-                RemoteControl.this.onBackPressed();
+//            case android.R.id.home:
+//                RemoteControl.this.onBackPressed();
+
+            case R.id.settings:
+                Intent setting = new Intent(RemoteControl.this, SettingsActivity.class);
+                startActivity(setting);
 
             default:
                 // If we got here, the user's action was not recognized.
