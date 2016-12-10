@@ -138,72 +138,20 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        /* hiding the overflow in this activity*/
-        MenuItem item = menu.findItem(R.id.settings);
-        MenuItem item2 = menu.findItem(R.id.logout);
-        MenuItem item3 = menu.findItem(R.id.about);
-        item.setVisible(false);
-        item2.setVisible(false);
-        item3.setVisible(false);
-        return true;
+    // Handle the Back Key
+    public void onBackPressed() {
+        new AlertDialog.Builder(this)
+                .setTitle("Do you want to exit?")
+                .setMessage("Are you sure you want to exit?")
+                .setNegativeButton(android.R.string.no, null)
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface arg0, int arg1) {
+                        LoginActivity.super.onBackPressed();
+                    }
+                }).create().show();
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                //NavUtils.navigateUpFromSameTask(this);
-                String title = getResources().getString(R.string.abTitle);
-                String msg = getResources().getString(R.string.abMsg);
-                String yes = getResources().getString(R.string.yes);
-                String no = getResources().getString(R.string.no);
 
 
-                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-                // set title
-                alertDialogBuilder.setTitle(title);
-                // set dialog message
-                alertDialogBuilder
-                        .setMessage(msg)
-                        .setCancelable(false)
-                        .setPositiveButton(yes, new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-                                // if this button is clicked, close
-                                // current activity
-                                LoginActivity.this.finish();
 
-                                //display in short period of time
-                                //Toast.makeText(getApplicationContext(), "Yes is clicked",
-                                //      Toast.LENGTH_LONG).show();
-                            }
-                        })
-
-                        .setNegativeButton(no, new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-                                // if this button is clicked, just close
-                                // the dialog box and do nothing
-                                dialog.cancel();
-
-                                //display in short period of time
-                                //Toast.makeText(getApplicationContext(), "No is clicked",
-                                //   Toast.LENGTH_LONG).show();
-                            }
-                        });
-                // create alert dialog
-                AlertDialog alertDialog = alertDialogBuilder.create();
-
-                // show it
-                alertDialog.show();
-
-                return true;
-            default:
-                // If we got here, the user's action was not recognized.
-                // Invoke the superclass to handle it.
-                return super.onOptionsItemSelected(item);
-
-        }
-    }
 }

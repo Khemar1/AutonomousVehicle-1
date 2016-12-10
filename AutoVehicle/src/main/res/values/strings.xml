@@ -32,4 +32,10 @@
     <string name="connect">Connect</string>
     <string name="enter_the_ip_address_of_the_robot">Enter the IP Address of the Robot</string>
     <string name="close_connection">Close Connection</string>
+    <string name="noipsettings">Go To Settings!</string>
+    <string name="wouldyou">Would you like to add an IP Address?</string>
+    <string name="later">Later</string>
+    <string name="RemoteActivity" translatable="false">Remote Control</string>
+    <string name="Register">Register</string>
+
 </resources>

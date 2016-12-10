@@ -24,7 +24,7 @@
         <activity android:name=".MenuActivity" />
         <activity
             android:name=".SettingsActivity"
-            android:label="@string/title_activity_settings" />
+            android:label="@string/settings" />
     </application>
 
 </manifest>

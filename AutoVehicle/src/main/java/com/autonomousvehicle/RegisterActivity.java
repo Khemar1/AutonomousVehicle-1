@@ -30,7 +30,7 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-        getSupportActionBar().setTitle("Register");
+        getSupportActionBar().setTitle(getString(R.string.Register));
 
         final EditText etname = (EditText) findViewById(R.id.etName);
         final EditText etuserName = (EditText) findViewById(R.id.etUsername);
