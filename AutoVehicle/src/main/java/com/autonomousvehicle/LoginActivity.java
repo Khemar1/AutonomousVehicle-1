@@ -9,6 +9,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+import android.support.annotation.ColorInt;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -26,6 +27,7 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -91,42 +93,59 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+
+
         signIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 final String username = etuserName.getText().toString();
                 final String passsword = etpassword.getText().toString();
+                boolean good = true;
 
-                Response.Listener<String> responseListener = new Response.Listener<String>(){
+                if(username.isEmpty() && passsword.isEmpty()){
+                    Toast.makeText(getBaseContext(), "Both fields needed",
+                            Toast.LENGTH_LONG).show();
+                    good = false;
+                }else if(username.isEmpty()){
+                    Toast.makeText(getBaseContext(), "Username needed",
+                            Toast.LENGTH_LONG).show();
+                    good = false;
+                }else if(passsword.isEmpty()){
+                    Toast.makeText(getBaseContext(), "Password needed",
+                            Toast.LENGTH_LONG).show();
+                    good = false;
+                }else if (good){
+                    Response.Listener<String> responseListener = new Response.Listener<String>() {
 
-                    @Override
-                    public void onResponse(String response) {
-                        try {
-                            JSONObject jsonResponse = new JSONObject(response);
-                            boolean success = jsonResponse.getBoolean("success");
+                        @Override
+                        public void onResponse(String response) {
+                            try {
+                                JSONObject jsonResponse = new JSONObject(response);
+                                boolean success = jsonResponse.getBoolean("success");
 
-                            if(success){
-                                Intent intent = new Intent(LoginActivity.this, MenuActivity.class);
-                                startActivity(intent);
+                                if (success) {
+                                    Intent intent = new Intent(LoginActivity.this, MenuActivity.class);
+                                    startActivity(intent);
 
-                            }else{
-                                AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
-                                builder.setTitle("The Username and password you entered did not match our records.")
-                                        .setMessage("Please double-check and try again.")
-                                        .setNegativeButton("Retry", null)
-                                        .create()
-                                        .show();
+                                } else {
+                                    AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
+                                    builder.setTitle("The Username and password you entered did not match our records.")
+                                            .setMessage("Please double-check and try again.")
+                                            .setNegativeButton("Retry", null)
+                                            .create()
+                                            .show();
+                                }
+
+                            } catch (JSONException e) {
+                                e.printStackTrace();
                             }
-
-                        } catch (JSONException e) {
-                            e.printStackTrace();
                         }
-                    }
-                };
+                    };
 
-                LoginRequest loginRequest = new LoginRequest(username, passsword, responseListener);
-                RequestQueue queue = Volley.newRequestQueue(LoginActivity.this);
-                queue.add(loginRequest);
+                    LoginRequest loginRequest = new LoginRequest(username, passsword, responseListener);
+                    RequestQueue queue = Volley.newRequestQueue(LoginActivity.this);
+                    queue.add(loginRequest);
+                }
             }
         });
     }

@@ -5,6 +5,8 @@
     <color name="colorAccent">#FF4081</color>
     <color name="colorFABBckGrnd">#3F51B5</color>
     <color name="colorFABText">#FFFFFF</color>
+    <color name="error">#FF0000</color>
+    <color name="white">#FFFFFF</color>
 
 
 </resources>
