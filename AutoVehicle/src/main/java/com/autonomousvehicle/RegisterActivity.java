@@ -52,17 +52,27 @@ public class RegisterActivity extends AppCompatActivity {
                 final String password = etpassword.getText().toString();
                 final String rePass = etRePass.getText().toString();
                 if (Objects.equals(password, rePass)) {
-                    passErr.setText("*Passwords don't match");
+
+                        passErr.setText("");
+
                     if (name.isEmpty() || user_name.isEmpty() || password.isEmpty() || rePass.isEmpty()) {
 
                         if (name.isEmpty()) {
                             nameErr.setText("*Missing Name");
-                        } else if (user_name.isEmpty()) {
+                        }else{
+                            nameErr.setText("");
+                        }if (user_name.isEmpty()) {
                             uNameErr.setText("*Missing Username");
-                        } else if (password.isEmpty()) {
+                        }else{
+                            uNameErr.setText("");
+                        }if (password.isEmpty()) {
                             passErr.setText("*Missing Password");
-                        } else if (rePass.isEmpty()) {
+                        }else{
+                            passErr.setText("");
+                        }if (rePass.isEmpty()) {
                             rePassErr.setText("*Missing Re-Password");
+                        }else{
+                            rePassErr.setText("");
                         }
 
                     } else {
@@ -95,6 +105,9 @@ public class RegisterActivity extends AppCompatActivity {
                         RequestQueue queue = Volley.newRequestQueue(RegisterActivity.this);
                         queue.add(registerRequest);
                     }
+                }else if (!Objects.equals(password, rePass)){
+                    passErr.setText("*Passwords Dont match");
+
                 }
 
             }

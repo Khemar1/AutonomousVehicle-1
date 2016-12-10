@@ -45,8 +45,6 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
         final EditText etuserName = (EditText)findViewById(R.id.etUsername);
         final EditText etpassword = (EditText)findViewById(R.id.etPassword);
         Button signIn = (Button) findViewById(R.id.bSignIn);
@@ -108,17 +106,13 @@ public class LoginActivity extends AppCompatActivity {
                             boolean success = jsonResponse.getBoolean("success");
 
                             if(success){
-                                //  AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
-                                //  builder.setMessage("Login GOOD!!")
-                                //          .setNegativeButton("Retry", null)
-                                //          .create()
-                                //          .show();
                                 Intent intent = new Intent(LoginActivity.this, MenuActivity.class);
                                 startActivity(intent);
 
                             }else{
                                 AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
-                                builder.setMessage("Login Failed")
+                                builder.setTitle("The Username and password you entered did not match our records.")
+                                        .setMessage("Please double-check and try again.")
                                         .setNegativeButton("Retry", null)
                                         .create()
                                         .show();
