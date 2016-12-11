@@ -43,7 +43,7 @@ public class JoyStick {
     private DrawCanvas draw;
     private Paint paint;
     private Bitmap stick;
-
+//
     private boolean touch_state = false;
 
     public JoyStick(Context context, ViewGroup layout, int stick_res_id) {
