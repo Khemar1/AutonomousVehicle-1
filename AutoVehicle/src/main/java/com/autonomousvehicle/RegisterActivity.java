@@ -30,7 +30,7 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-
+        getSupportActionBar().setTitle(getString(R.string.Register));
 
         final EditText etname = (EditText) findViewById(R.id.etName);
         final EditText etuserName = (EditText) findViewById(R.id.etUsername);
@@ -53,7 +53,7 @@ public class RegisterActivity extends AppCompatActivity {
                 final String rePass = etRePass.getText().toString();
                 if (Objects.equals(password, rePass)) {
 
-                        passErr.setText("");
+                    passErr.setText("");
 //
                     if (name.isEmpty() || user_name.isEmpty() || password.isEmpty() || rePass.isEmpty()) {
 
@@ -67,10 +67,10 @@ public class RegisterActivity extends AppCompatActivity {
                             uNameErr.setText("");
                         }if (password.isEmpty()) {
                             passErr.setText(getString(R.string.missingpassword));
-                        }else{
+                        }if (!password.isEmpty()){
                             passErr.setText("");
                         }if (rePass.isEmpty()) {
-                            rePassErr.setText(getString(R.string.missingreenter));
+                            rePassErr.setText(getString(R.string.missingre));
                         }else{
                             rePassErr.setText("");
                         }
@@ -106,7 +106,7 @@ public class RegisterActivity extends AppCompatActivity {
                         queue.add(registerRequest);
                     }
                 }else if (!Objects.equals(password, rePass)){
-                    passErr.setText(getString(R.string.missingreenter));
+                    rePassErr.setText(getString(R.string.missingreenter));
 
                 }
 

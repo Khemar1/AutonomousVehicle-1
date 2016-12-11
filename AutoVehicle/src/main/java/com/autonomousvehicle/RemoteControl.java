@@ -26,9 +26,9 @@ import android.widget.Toast;
 public class RemoteControl extends AppCompatActivity {
 
     RelativeLayout layout_joystick;
-
-    TextView directiontv;
-
+    ImageView image_joystick, image_border;
+    TextView textView1, textView2, textView3, textView4, textView5;
+    boolean connected = false;
     JoyStick js;
 
     Sender command;
@@ -37,22 +37,26 @@ public class RemoteControl extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_remote_control);
-
+        getSupportActionBar().setTitle(getString(R.string.RemoteActivity));
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        directiontv = (TextView) findViewById(R.id.directiontv);
-
+        /*textView1 = (TextView) findViewById(R.id.textView1);
+        textView2 = (TextView) findViewById(R.id.textView2);
+        textView3 = (TextView) findViewById(R.id.textView3);
+        textView4 = (TextView) findViewById(R.id.textView4);
+        textView5 = (TextView) findViewById(R.id.textView5);*/
         final TextView IPAdd = (TextView) findViewById(R.id.IpAdd);
         Button close = (Button) findViewById(R.id.bClose);
         final Button connect = (Button) findViewById(R.id.bConnect);
 
         SharedPreferences preferences2 = getSharedPreferences("ip", MODE_PRIVATE);
         String name = preferences2.getString("ip", "");
-        if(!name.equalsIgnoreCase(""))
-        {
-            IPAdd.setText( name );
-        }else{
+
+        if (!name.equalsIgnoreCase("")) {
+            IPAdd.setText(name);  /* Edit the value here*/
+        } else {
+            IPAdd.setText("No Ip Address Entered");
             String title = getString(R.string.noipsettings);
             String msg = getString(R.string.wouldyou);
             String yes = getString(R.string.yes);
@@ -78,10 +82,10 @@ public class RemoteControl extends AppCompatActivity {
 
                         }
                     });
-
+            // create alert dialog
             AlertDialog alertDialog = alertDialogBuilder.create();
 
-
+            // show it
             alertDialog.show();
         }
 
@@ -101,15 +105,14 @@ public class RemoteControl extends AppCompatActivity {
         connect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                if(IPAdd.getText().equals(getString(R.string.IPAddress))){
-                    Toast.makeText(getBaseContext(), R.string.enterip,
-                            Toast.LENGTH_SHORT).show();
-                }
-                else {
+                if (IPAdd.getText().toString().equals("No Ip Address Entered")) {
+                    Toast.makeText(getBaseContext(), "There is no Ip Address to connect to",
+                            Toast.LENGTH_LONG).show();
+                    connected = false;
+                } else {
                     command.setIpAddress(IPAdd.getText().toString());
-
                     command = new Sender();
+                    connected = true;
                 }
             }
         });
@@ -117,13 +120,12 @@ public class RemoteControl extends AppCompatActivity {
         close.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(IPAdd.getText().equals(getString(R.string.IPAddress))){
-                    Toast.makeText(getBaseContext(), R.string.noconnection,
-                            Toast.LENGTH_SHORT).show();
-                }
-                else
+                if(connected != false){
                     command.done();
-
+                }else {
+                    Toast.makeText(getBaseContext(), "No Connection to close",
+                            Toast.LENGTH_LONG).show();
+                }
             }
         });
 
@@ -137,32 +139,36 @@ public class RemoteControl extends AppCompatActivity {
 
                     int direction = js.get8Direction();
                     if (direction == JoyStick.STICK_UP) {
-                       // command.send("upp");
-                       directiontv.setText(getString(R.string.up));
+                        // command.send("upp");
+                        //textView5.setText("Direction : Up");
                     } else if (direction == JoyStick.STICK_UPRIGHT) {
-                       // command.send("pivrr");
-                        directiontv.setText(getString(R.string.upright));
+                        // command.send("pivrr");
+                        // textView5.setText("Direction : Up Right");
                     } else if (direction == JoyStick.STICK_RIGHT) {
-                       // command.send("rightt");
-                        directiontv.setText(getString(R.string.right));
+                        // command.send("rightt");
+                        // textView5.setText("Direction : Right");
                     } else if (direction == JoyStick.STICK_DOWNRIGHT) {
-                        directiontv.setText(getString(R.string.downright));
+                        // textView5.setText("Direction : Down Right");
                     } else if (direction == JoyStick.STICK_DOWN) {
-                       // command.send("downn");
-                        directiontv.setText(getString(R.string.down));
+                        // command.send("downn");
+                        //textView5.setText("Direction : Down");
                     } else if (direction == JoyStick.STICK_DOWNLEFT) {
-                        directiontv.setText(getString(R.string.downleft));
+                        //textView5.setText("Direction : Down Left");
                     } else if (direction == JoyStick.STICK_LEFT) {
-                        directiontv.setText(getString(R.string.left));
-                     //   command.send("leftt");
+                        //textView5.setText("Direction : Left");
+                        //   command.send("leftt");
                     } else if (direction == JoyStick.STICK_UPLEFT) {
-                      //  command.send("pivll");
-                        directiontv.setText(getString(R.string.upleft));
+                        //  command.send("pivll");
+                        //textView5.setText("Direction : Up Left");
                     } else if (direction == JoyStick.STICK_NONE) {
-                        directiontv.setText("");
+                        //textView5.setText("Direction : Center");
                     }
                 } else if (arg1.getAction() == MotionEvent.ACTION_UP) {
-
+                    /*textView1.setText(R.string.x);
+                    textView2.setText(R.string.y);
+                    textView3.setText(R.string.angle);
+                    textView4.setText(R.string.distance);
+                    textView5.setText(R.string.direction);*/
                 }
                 return true;
             }
