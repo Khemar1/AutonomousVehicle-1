@@ -52,6 +52,38 @@
 
     </LinearLayout>
 -->
+    <RelativeLayout
+        android:id="@+id/layout_joystick"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_marginRight="36dp"
+        android:background="@drawable/image_button_bg"
+        android:layout_marginBottom="36dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true">
+    </RelativeLayout>
+
+    <TextView
+        android:text="@string/enter_the_ip_address_of_the_robot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvInfo"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="12dp"
+        android:layout_marginTop="17dp"
+        android:textColor="@android:color/background_light" />
+
+    <Button
+        android:text="@string/close_connection"
+        android:layout_width="116dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/bClose"
+        android:layout_marginTop="38dp"
+        android:background="@android:color/holo_orange_dark"
+        android:textColor="@android:color/background_light"
+        android:layout_below="@+id/IpAdd"
+        android:layout_alignEnd="@+id/tvInfo" />
 
     <TextView
         android:text="@string/direction"
@@ -61,10 +93,10 @@
         android:textStyle="normal|bold"
         android:textColor="@color/colorFABText"
         android:textSize="18sp"
-        android:layout_marginTop="8dp"
-        android:layout_below="@+id/tvInfo"
+        android:layout_alignBaseline="@+id/bClose"
+        android:layout_alignBottom="@+id/bClose"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="37dp" />
+        android:layout_marginStart="42dp" />
 
     <TextView
         android:text="@string/center"
@@ -73,44 +105,22 @@
         android:id="@+id/directiontv"
         android:textColor="@color/colorFABText"
         android:fontFamily="casual"
-        android:layout_marginStart="71dp"
         android:layout_alignBaseline="@+id/direction"
         android:layout_alignBottom="@+id/direction"
-        android:layout_toEndOf="@+id/direction" />
+        android:layout_toStartOf="@+id/layout_joystick"
+        android:layout_marginEnd="94dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:id="@+id/IpAdd"
-        android:layout_marginTop="62dp"
+        android:layout_marginTop="15dp"
         android:textColor="@android:color/darker_gray"
         android:textSize="18sp"
         android:text="@string/IPAddress"
-        android:layout_below="@+id/directiontv"
-        android:layout_alignEnd="@+id/bClose" />
-
-    <TextView
-        android:text="@string/enter_the_ip_address_of_the_robot"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/tvInfo"
-        android:layout_marginEnd="33dp"
-        android:layout_marginTop="68dp"
-        android:textColor="@android:color/background_light"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true" />
-
-    <RelativeLayout
-        android:id="@+id/layout_joystick"
-        android:layout_width="500dp"
-        android:layout_height="500dp"
-        android:layout_marginRight="36dp"
-        android:background="@drawable/image_button_bg"
-        android:layout_below="@+id/directiontv"
-        android:layout_alignStart="@+id/directiontv"
-        android:layout_marginTop="29dp">
-    </RelativeLayout>
+        android:layout_below="@+id/tvInfo"
+        android:layout_alignStart="@+id/bConnect" />
 
     <Button
         android:text="@string/connect"
@@ -119,19 +129,8 @@
         android:id="@+id/bConnect"
         android:background="@android:color/holo_orange_dark"
         android:textColor="@android:color/background_light"
-        android:layout_below="@+id/IpAdd"
-        android:layout_alignStart="@+id/IpAdd"
-        android:layout_marginTop="56dp" />
-
-    <Button
-        android:text="@string/close_connection"
-        android:layout_width="116dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/bClose"
-        android:background="@android:color/holo_orange_dark"
-        android:textColor="@android:color/background_light"
-        android:layout_alignBottom="@+id/bConnect"
-        android:layout_alignEnd="@+id/tvInfo"
-        android:layout_alignTop="@+id/bConnect" />
+        android:layout_marginEnd="33dp"
+        android:layout_alignTop="@+id/bClose"
+        android:layout_toStartOf="@+id/bClose" />
 
 </RelativeLayout>

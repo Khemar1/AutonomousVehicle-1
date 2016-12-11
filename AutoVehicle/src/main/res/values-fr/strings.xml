@@ -54,6 +54,11 @@
     <string name="wouldyou">Voulez-vous ajouter une adresse IP</string>
     <string name="yes">Oui</string>
     <string name="noconnection">Pas de connexion à fermer!</string>
+    <string name="enterip">Entrez l\'adresse IP dans les paramètres!</string>
+    <string name="versionnum">Version 1.0.0</string>
+    <string name="developers" translatable="false">Développeurs</string>
+    <string name="RemoteActivity">Télécommande</string>
+    <string name="IPAddress" translatable="false">adresse IP</string>
 
 
 </resources>

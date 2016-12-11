@@ -30,7 +30,6 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-        getSupportActionBar().setTitle(getString(R.string.Register));
 
         final EditText etname = (EditText) findViewById(R.id.etName);
         final EditText etuserName = (EditText) findViewById(R.id.etUsername);
@@ -70,7 +69,7 @@ public class RegisterActivity extends AppCompatActivity {
                         }if (!password.isEmpty()){
                             passErr.setText("");
                         }if (rePass.isEmpty()) {
-                            rePassErr.setText(getString(R.string.missingre));
+                            rePassErr.setText(getString(R.string.missingreenter));
                         }else{
                             rePassErr.setText("");
                         }

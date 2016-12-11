@@ -1,7 +1,7 @@
 /**
  * Bilal Alfanous
  * N00994056
- */
+ * */
 package com.autonomousvehicle;
 
 
@@ -11,30 +11,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.text.Layout;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.Toast;
-
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.Volley;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.MalformedURLException;
-import java.net.URL;
-
-import static android.content.ContentValues.TAG;
 
 public class DrawView extends View {
     Paint paint = new Paint();

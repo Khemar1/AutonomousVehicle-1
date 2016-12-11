@@ -11,8 +11,8 @@
 
     <string name="password">Password</string>
     <string name="groupname" translatable="false">JBK.17</string>
-    <string name="x">X:</string>
-    <string name="y">Y:</string>
+    <string name="x" translatable="false">X:</string>
+    <string name="y" translatable="false">Y:</string>
     <string name="angle">Angle:</string>
     <string name="distance">Distance:</string>
     <string name="direction">Direction:</string>
@@ -32,7 +32,7 @@
     <string name="noipsettings">Go To Settings!</string>
     <string name="wouldyou">Would you like to add an IP Address?</string>
     <string name="later">Later</string>
-    <string name="RemoteActivity" translatable="false">Remote Control</string>
+    <string name="RemoteActivity">Remote Control</string>
     <string name="Register">Register</string>
     <string name="center">Center</string>
     <string name="up">Up</string>
@@ -61,13 +61,13 @@
     <string name="noconnection">No connection to close!</string>
     <string name="IPAddress">IP Address</string>
     <string name="enterip">Enter IP address in settings!</string>
-    <string name="Khemar">Khemar Bryan</string>
-    <string name="Jan">Jan Yalda</string>
-    <string name="Bilal">Bilal Alfanous</string>
+    <string name="Khemar" translatable="false">Khemar Bryan</string>
+    <string name="Jan" translatable="false">Jan Yalda</string>
+    <string name="Bilal" translatable="false">Bilal Alfanous</string>
     <string name="developers">Developers</string>
-    <string name="jbk17">JBK17</string>
+    <string name="jbk17" translatable="false">JBK17</string>
     <string name="versionnum">Version 1.0.0</string>
-    <string name="missingre">Missing Re-Password</string>
+    <string name="go_to_settings">Go to Settings!</string>
 
 
 </resources>
