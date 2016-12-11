@@ -24,7 +24,7 @@ public class MenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
-      //  getSupportActionBar().setTitle(R.string.mainmenu);
+
 
 
         Button map = (Button) findViewById(R.id.bMapping);

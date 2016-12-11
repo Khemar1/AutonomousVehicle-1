@@ -1,3 +1,6 @@
+/**
+ * JBK.17
+ * */
 package com.autonomousvehicle;
 
 import android.content.Context;
@@ -19,14 +22,14 @@ public class SettingsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
-     //   getSupportActionBar().setTitle(R.string.settings);
+
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         ipAddress = (EditText) findViewById(R.id.etIPAddress);
         preferences = getSharedPreferences("ip", MODE_PRIVATE);
         editor = preferences.edit();
     }
-//
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

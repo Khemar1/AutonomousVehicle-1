@@ -37,7 +37,7 @@ public class RemoteControl extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_remote_control);
-    //    getSupportActionBar().setTitle(getString(R.string.RemoteActivity));
+
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
