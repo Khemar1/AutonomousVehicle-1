@@ -145,6 +145,7 @@ public class LoginActivity extends AppCompatActivity {
                     LoginRequest loginRequest = new LoginRequest(username, passsword, responseListener);
                     RequestQueue queue = Volley.newRequestQueue(LoginActivity.this);
                     queue.add(loginRequest);
+
                 }
             }
         });
@@ -157,6 +158,7 @@ public class LoginActivity extends AppCompatActivity {
                 .setTitle("Do you want to exit?")
                 .setMessage("Are you sure you want to exit?")
                 .setNegativeButton(android.R.string.no, null)
+                .setCancelable(false)
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface arg0, int arg1) {
                         LoginActivity.super.onBackPressed();
