@@ -32,9 +32,9 @@ public class DrawView extends View {
     @Override
     public void onDraw(Canvas canvas) {
 
-//        canvas.drawLine(50, 100, 100, 100, paint);
-//        canvas.drawLine(100, 100, 100, 200, paint);
-        int[][] arr = new int[4][2];
+        canvas.drawLine(50, 100, 100, 100, paint);
+        canvas.drawLine(100, 100, 100, 200, paint);
+ /*       int[][] arr = new int[4][2];
 
         arr[0][0] = 100;
         arr[1][0] = 100;
@@ -47,7 +47,7 @@ public class DrawView extends View {
         arr[3][1] = 100;
 
         for(int i = 0; i < 3; i++)
-            canvas.drawLine(arr[i][i], arr[i+1][i], arr[i][i+1], arr[i+1][i+1], paint);
+            canvas.drawLine(arr[i][i], arr[i+1][i], arr[i][i+1], arr[i+1][i+1], paint);*/
 
     }
 
