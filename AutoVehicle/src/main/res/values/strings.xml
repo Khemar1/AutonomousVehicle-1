@@ -67,6 +67,7 @@
     <string name="developers">Developers</string>
     <string name="jbk17">JBK17</string>
     <string name="versionnum">Version 1.0.0</string>
+    <string name="missingre">Missing Re-Password</string>
 
 
 </resources>

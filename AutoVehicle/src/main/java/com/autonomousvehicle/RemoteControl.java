@@ -28,7 +28,7 @@ public class RemoteControl extends AppCompatActivity {
     RelativeLayout layout_joystick;
     ImageView image_joystick, image_border;
     TextView textView1, textView2, textView3, textView4, textView5;
-    boolean connected = true;
+    boolean connected = false;
     JoyStick js;
 
     Sender command;
@@ -52,9 +52,11 @@ public class RemoteControl extends AppCompatActivity {
 
         SharedPreferences preferences2 = getSharedPreferences("ip", MODE_PRIVATE);
         String name = preferences2.getString("ip", "");
+
         if (!name.equalsIgnoreCase("")) {
             IPAdd.setText(name);  /* Edit the value here*/
         } else {
+            IPAdd.setText("No Ip Address Entered");
             String title = getString(R.string.noipsettings);
             String msg = getString(R.string.wouldyou);
             String yes = getString(R.string.yes);
@@ -103,7 +105,7 @@ public class RemoteControl extends AppCompatActivity {
         connect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (IPAdd.getText().toString().equals("")) {
+                if (IPAdd.getText().toString().equals("No Ip Address Entered")) {
                     Toast.makeText(getBaseContext(), "There is no Ip Address to connect to",
                             Toast.LENGTH_LONG).show();
                     connected = false;
@@ -118,7 +120,7 @@ public class RemoteControl extends AppCompatActivity {
         close.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(connected){
+                if(connected != false){
                     command.done();
                 }else {
                     Toast.makeText(getBaseContext(), "No Connection to close",
