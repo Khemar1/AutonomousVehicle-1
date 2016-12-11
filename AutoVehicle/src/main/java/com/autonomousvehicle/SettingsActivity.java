@@ -26,7 +26,7 @@ public class SettingsActivity extends AppCompatActivity {
         preferences = getSharedPreferences("ip", MODE_PRIVATE);
         editor = preferences.edit();
     }
-
+//
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
