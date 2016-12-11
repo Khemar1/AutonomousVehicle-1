@@ -8,7 +8,7 @@
     <string name="bMapping">Mapping</string>
     <string name="mappingMsg">Get the mapped area from hardware</string>
     <string name="logout">logout</string>
-    <string name="mapping">Mapping</string>
+
     <string name="password">Password</string>
     <string name="groupname" translatable="false">JBK.17</string>
     <string name="x">X:</string>
@@ -16,7 +16,7 @@
     <string name="angle">Angle:</string>
     <string name="distance">Distance:</string>
     <string name="direction">Direction:</string>
-    <string name="username" />
+
     <string name="abTitle">Exiting the App</string>
     <string name="abMsg">Are you sure you want to Exit?</string>
     <string name="yes">Yes</string>
@@ -47,14 +47,14 @@
     <string name="missinguser">Missing User Name</string>
     <string name="missingpassword">Missing Password</string>
     <string name="missingreenter">Passwords do not match</string>
-    <string name="registerfail">Register Failed</string>
+    <string name="registerfail">Registration Failed</string>
     <string name="retry">Retry</string>
     <string name="exitquestion">Do you want to exit?</string>
     <string name="sure">Are you sure you want to exit?</string>
     <string name="recordmatch">The username and password you entered do not match our records</string>
     <string name="doublecheck">Please double-check and try again</string>
-    <string name="usernamereq">User Name Needed</string>
-    <string name="passwordreq">Password Needed</string>
+    <string name="usernamereq">User Name required</string>
+    <string name="passwordreq">Password required</string>
     <string name="bothreq">Both fields need to be entered</string>
     <string name="mainmenu">Main Menu</string>
     <string name="ok">Ok</string>

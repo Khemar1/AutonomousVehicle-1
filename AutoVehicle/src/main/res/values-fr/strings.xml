@@ -24,6 +24,35 @@
     <string name="left">À gauche</string>
     <string name="mainmenu">Menu principal</string>
     <string name="logout">Se déconnecter</string>
-    <string name="mapping"></string>
+    <string name="mappingMsg">Récupérer la zone mappée</string>
+    <string name="menumsg">Veuillez sélectionner le mode que vous aimeriez utiliser la voiture dans</string>
+    <string name="missingname">Le nom est manquant</string>
+    <string name="missingpassword">Mot de passe manquant</string>
+    <string name="missingreenter">Les mots de passe ne correspondent pas</string>
+    <string name="missinguser">Nom d\'utilisateur manquant</string>
+    <string name="no">Non</string>
+    <string name="noipsettings">Aller aux paramètres</string>
+    <string name="ok">D\'accord</string>
+    <string name="password">Mot de passe</string>
+    <string name="passwordreq">Mot de passe requis</string>
+    <string name="recordmatch">Le nom d\'utilisateur et le mot de passe que vous avez entrés ne correspondent pas à nos enregistrements</string>
+    <string name="registerfail">Échec de l\'enregistrement</string>
+    <string name="remember_me">Souviens-toi de moi</string>
+    <string name="remoteMsg">Contrôler la voiture</string>
+    <string name="retry">Recommencez</string>
+    <string name="right">Droite</string>
+    <string name="settings">Paramètres</string>
+    <string name="sign_in">Se connecter</string>
+    <string name="sign_up_for_an_account">Inscrivez-vous pour un compte</string>
+    <string name="start">Démarrer</string>
+    <string name="stop">Arrêtez</string>
+    <string name="sure">Êtes-vous sûr de vouloir quitter?</string>
+    <string name="up">Up</string>
+    <string name="upleft">En haut à gauche</string>
+    <string name="upright">En haut à droite</string>
+    <string name="usernamereq">Nom d\'utilisateur est nécessaire</string>
+    <string name="wouldyou">Voulez-vous ajouter une adresse IP</string>
+    <string name="yes">Oui</string>
+
 
 </resources>

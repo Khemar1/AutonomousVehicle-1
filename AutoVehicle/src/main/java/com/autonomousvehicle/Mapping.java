@@ -26,7 +26,9 @@ public class Mapping extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mapping);
 
+        getSupportActionBar().setTitle(R.string.bMapping);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
 
         drawView = new DrawView(this);
         drawView.setBackgroundColor(Color.WHITE);

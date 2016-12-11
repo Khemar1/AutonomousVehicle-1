@@ -21,7 +21,7 @@
         <activity android:name=".Mapping" />
         <activity android:name=".RemoteControl" android:parentActivityName=".MenuActivity"/>
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".MenuActivity" />
+        <activity android:name=".MenuActivity" android:parentActivityName=".LoginActivity" />
         <activity
             android:name=".SettingsActivity"
             android:label="@string/settings" />
