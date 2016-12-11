@@ -62,7 +62,7 @@ class Sender extends Socket {
         } catch (Exception e) {
             // TODO: handle exception
         }
-        return msg = "nothing gotten";
+        return msg = "nothing received";
     }
 
     /*method to close the socket*/

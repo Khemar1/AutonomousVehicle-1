@@ -34,7 +34,8 @@
             android:id="@+id/tvApp"
             android:layout_weight="0.25"
             android:textAlignment="center"
-            android:textStyle="normal|bold" />
+            android:textStyle="normal|bold"
+            android:fontFamily="serif" />
 
         <TextView
             android:text="@string/versionnum"
@@ -43,7 +44,8 @@
             android:id="@+id/tvVer"
             android:layout_weight="0.24"
             android:textAlignment="center"
-            android:textStyle="normal|bold" />
+            android:textStyle="normal|bold"
+            android:fontFamily="serif" />
 
         <TextView
             android:text="@string/developers"
@@ -52,7 +54,8 @@
             android:id="@+id/tvDev"
             android:layout_weight="0.18"
             android:textStyle="normal|bold"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:fontFamily="serif" />
 
         <LinearLayout
             android:orientation="vertical"

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_mapping"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.autonomousvehicle.Mapping"
+    android:background="@drawable/backgrond">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_width="150dp"
+        android:weightSum="1">
+
+        <Button
+            android:text="@string/start"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:id="@+id/start"
+            android:background="@android:color/holo_orange_dark"
+            android:textColor="@color/colorFABText"
+            android:elevation="4dp"
+            android:layout_marginTop="50dp"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/two_D_map_view" />
+
+        <Button
+            android:text="@string/stop"
+            android:layout_height="50dp"
+            android:id="@+id/stop"
+            android:background="@android:color/holo_orange_dark"
+            android:textColor="@color/colorFABText"
+            android:elevation="4dp"
+            android:layout_toEndOf="@+id/stop"
+            android:layout_width="match_parent"
+            tools:layout_marginTop="25dp"
+            android:layout_marginTop="50dp" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/two_D_map_view"
+        android:layout_height="match_parent"
+        android:layout_width="850dp"
+        android:background="@color/white"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
+
+        <com.autonomousvehicle.DrawView
+            android:layout_height="378dp"
+            android:layout_width="match_parent"
+            android:background="@color/white" />
+
+    </FrameLayout>
+
+</RelativeLayout>
