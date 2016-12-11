@@ -1,5 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Auto Vehicle</string>
-    <string name="abMsg"></string>
+    <string name="abMsg">Êtes-vous sûr de vouloir quitter?</string>
+    <string name="Register">Registre</string>
+    <string name="abTitle">Quitter l\'application</string>
+    <string name="about">Sur</string>
+    <string name="angle">Angle:</string>
+    <string name="bMapping">Cartographie</string>
+    <string name="bRemote">Éloigné</string>
+    <string name="bothreq">Les deux champs doivent être entrés</string>
+    <string name="center">Centre</string>
+    <string name="close_connection">Fermer la connexion</string>
+    <string name="connect">Relier</string>
+    <string name="direction">Direction:</string>
+    <string name="distance">Distance:</string>
+    <string name="doublecheck">Veuillez vérifier et essayer à nouveau</string>
+    <string name="down">Vers le bas</string>
+    <string name="downleft">En bas à gauche</string>
+    <string name="downright">En bas à droite</string>
+    <string name="enter_the_ip_address_of_the_robot">Entrez l\'adresse IP</string>
+    <string name="exitquestion">Voulez-vous sortir?</string>
+    <string name="later">Plus tard</string>
+    <string name="left">À gauche</string>
+    <string name="mainmenu">Menu principal</string>
+    <string name="logout">Se déconnecter</string>
+    <string name="mapping"></string>
+
 </resources>

@@ -3,16 +3,14 @@
     <string name="settings">Settings</string>
     <string name="about">About</string>
     <string name="menumsg">\t Please Select the mode \nyou\'d like to operate the robotic car in</string>
-    <string name="bAuto">Auto</string>
-    <string name="autoMsg">Have it Work independently</string>
     <string name="bRemote">Remote</string>
-    <string name="remoteMsg">Have Control over it</string>
+    <string name="remoteMsg">Control the car</string>
     <string name="bMapping">Mapping</string>
     <string name="mappingMsg">Get the mapped area from hardware</string>
     <string name="logout">logout</string>
     <string name="mapping">Mapping</string>
     <string name="password">Password</string>
-    <string name="groupname">JBK.17</string>
+    <string name="groupname" translatable="false">JBK.17</string>
     <string name="x">X:</string>
     <string name="y">Y:</string>
     <string name="angle">Angle:</string>
