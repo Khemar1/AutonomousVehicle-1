@@ -47,7 +47,6 @@
     <string name="missinguser">Missing User Name</string>
     <string name="missingpassword">Missing Password</string>
     <string name="missingreenter">Passwords do not match</string>
-    <string name="missingre">Missing Re-Passwords</string>
     <string name="registerfail">Registration Failed</string>
     <string name="retry">Retry</string>
     <string name="exitquestion">Do you want to exit?</string>
@@ -58,6 +57,16 @@
     <string name="passwordreq">Password required</string>
     <string name="bothreq">Both fields need to be entered</string>
     <string name="mainmenu">Main Menu</string>
-    <string name="ok">Ok</string>
+    <string name="ok">OK</string>
+    <string name="noconnection">No connection to close!</string>
+    <string name="IPAddress">IP Address</string>
+    <string name="enterip">Enter IP address in settings!</string>
+    <string name="Khemar">Khemar Bryan</string>
+    <string name="Jan">Jan Yalda</string>
+    <string name="Bilal">Bilal Alfanous</string>
+    <string name="developers">Developers</string>
+    <string name="jbk17">JBK17</string>
+    <string name="versionnum">Version 1.0.0</string>
+
 
 </resources>

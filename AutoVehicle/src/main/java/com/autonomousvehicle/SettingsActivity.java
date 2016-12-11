@@ -1,3 +1,6 @@
+/**
+ * JBK.17
+ * */
 package com.autonomousvehicle;
 
 import android.content.Context;
@@ -19,7 +22,7 @@ public class SettingsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
-        getSupportActionBar().setTitle("Settings");
+
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         ipAddress = (EditText) findViewById(R.id.etIPAddress);

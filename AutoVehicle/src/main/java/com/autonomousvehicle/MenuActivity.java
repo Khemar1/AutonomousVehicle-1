@@ -24,7 +24,7 @@ public class MenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
-        getSupportActionBar().setTitle("Main Menu");
+
 
 
         Button map = (Button) findViewById(R.id.bMapping);
@@ -84,7 +84,7 @@ public class MenuActivity extends AppCompatActivity {
                         // .setTitle("Event Calendar")
                         //.setMessage("Click to schedule or view events.")
                         .setView(ll2)
-                        .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                        .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int whichButton) {
 
                                     }

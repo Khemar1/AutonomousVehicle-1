@@ -4,27 +4,22 @@
 package com.autonomousvehicle;
 
 
-import android.content.Context;
+
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
-import android.support.annotation.ColorInt;
+
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
+
 import android.view.View;
-import android.view.Window;
+
 import android.widget.Button;
-import android.widget.CalendarView;
-import android.widget.CheckBox;
+
 import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
+
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -79,7 +74,7 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
-        //still doestn work!
+
         if(rememMe.isEnabled() == false){
             loginPrefsEditor.clear();
             loginPrefsEditor.commit();
@@ -103,15 +98,15 @@ public class LoginActivity extends AppCompatActivity {
                 boolean good = true;
 
                 if(username.isEmpty() && passsword.isEmpty()){
-                    Toast.makeText(getBaseContext(), "Both fields needed",
+                    Toast.makeText(getBaseContext(), R.string.bothreq,
                             Toast.LENGTH_LONG).show();
                     good = false;
                 }else if(username.isEmpty()){
-                    Toast.makeText(getBaseContext(), "Username needed",
+                    Toast.makeText(getBaseContext(), R.string.usernamereq,
                             Toast.LENGTH_LONG).show();
                     good = false;
                 }else if(passsword.isEmpty()){
-                    Toast.makeText(getBaseContext(), "Password needed",
+                    Toast.makeText(getBaseContext(), R.string.passwordreq,
                             Toast.LENGTH_LONG).show();
                     good = false;
                 }else if (good){
@@ -129,9 +124,9 @@ public class LoginActivity extends AppCompatActivity {
 
                                 } else {
                                     AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
-                                    builder.setTitle("The Username and password you entered did not match our records.")
-                                            .setMessage("Please double-check and try again.")
-                                            .setNegativeButton("Retry", null)
+                                    builder.setTitle(getString(R.string.recordmatch))
+                                            .setMessage(R.string.doublecheck)
+                                            .setNegativeButton(R.string.retry, null)
                                             .create()
                                             .show();
                                 }
@@ -155,8 +150,8 @@ public class LoginActivity extends AppCompatActivity {
     // Handle the Back Key
     public void onBackPressed() {
         new AlertDialog.Builder(this)
-                .setTitle("Do you want to exit?")
-                .setMessage("Are you sure you want to exit?")
+                .setTitle(R.string.exitquestion)
+                .setMessage(R.string.sure)
                 .setNegativeButton(android.R.string.no, null)
                 .setCancelable(false)
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
