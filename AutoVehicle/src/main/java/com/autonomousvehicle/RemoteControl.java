@@ -50,7 +50,7 @@ public class RemoteControl extends AppCompatActivity {
         String name = preferences2.getString("ip", "");
         if(!name.equalsIgnoreCase(""))
         {
-            IPAdd.setText( name );  /* Edit the value here*/
+            IPAdd.setText( name );
         }else{
             String title = getString(R.string.noipsettings);
             String msg = getString(R.string.wouldyou);
@@ -77,10 +77,10 @@ public class RemoteControl extends AppCompatActivity {
 
                         }
                     });
-            // create alert dialog
+
             AlertDialog alertDialog = alertDialogBuilder.create();
 
-            // show it
+
             alertDialog.show();
         }
 
@@ -149,11 +149,7 @@ public class RemoteControl extends AppCompatActivity {
                         directiontv.setText("");
                     }
                 } else if (arg1.getAction() == MotionEvent.ACTION_UP) {
-                    /*textView1.setText(R.string.x);
-                    textView2.setText(R.string.y);
-                    textView3.setText(R.string.angle);
-                    textView4.setText(R.string.distance);
-                    textView5.setText(R.string.direction);*/
+
                 }
                 return true;
             }
