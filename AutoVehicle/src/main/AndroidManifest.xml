@@ -18,10 +18,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Mapping" />
-        <activity android:name=".RemoteControl" android:parentActivityName=".MenuActivity"/>
-        <activity android:name=".RegisterActivity" />
-        <activity android:name=".MenuActivity" android:parentActivityName=".LoginActivity" />
+        <activity android:name=".Mapping" android:label="@string/bMapping" android:parentActivityName=".MenuActivity"/>
+        <activity android:name=".RemoteControl" android:parentActivityName=".MenuActivity"
+            android:label="@string/RemoteActivity"/>
+        <activity android:name=".RegisterActivity" android:parentActivityName=".LoginActivity"
+            android:label="@string/Register"/>
+        <activity android:name=".MenuActivity" android:parentActivityName=".LoginActivity"
+            android:label="@string/mainmenu"/>
         <activity
             android:name=".SettingsActivity"
             android:label="@string/settings" />
