@@ -8,7 +8,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.autonomousvehicle.Mapping">
+    tools:context="com.autonomousvehicle.Mapping"
+    android:background="@drawable/backgrond">
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -16,8 +17,9 @@
         android:layout_height="350dp" >
 
         <com.autonomousvehicle.DrawView
-            android:layout_height="match_parent"
-            android:layout_width="match_parent" />
+            android:layout_height="378dp"
+            android:layout_width="match_parent"
+            android:background="@color/white" />
 
     </FrameLayout>
 
@@ -34,7 +36,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/start"
-            android:background="@color/colorFABBckGrnd"
+            android:background="@android:color/holo_orange_dark"
             android:textColor="@color/colorFABText"
             android:elevation="4dp"
             android:layout_alignParentBottom="true"
@@ -46,7 +48,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/stop"
-            android:background="@color/colorFABBckGrnd"
+            android:background="@android:color/holo_orange_dark"
             android:textColor="@color/colorFABText"
             android:elevation="4dp"
             android:layout_alignBaseline="@+id/start"

@@ -53,6 +53,7 @@
     <string name="usernamereq">Nom d\'utilisateur est nécessaire</string>
     <string name="wouldyou">Voulez-vous ajouter une adresse IP</string>
     <string name="yes">Oui</string>
+    <string name="noconnection">Pas de connexion à fermer!</string>
 
 
 </resources>

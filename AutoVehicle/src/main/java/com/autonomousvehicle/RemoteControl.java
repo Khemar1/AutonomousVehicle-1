@@ -21,11 +21,12 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class RemoteControl extends AppCompatActivity {
 
     RelativeLayout layout_joystick;
-    ImageView image_joystick, image_border;
+
     TextView directiontv;
 
     JoyStick js;
@@ -100,16 +101,28 @@ public class RemoteControl extends AppCompatActivity {
         connect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                command.setIpAddress(IPAdd.getText().toString());
-                command = new Sender();
+
+                if(IPAdd.getText().equals(getString(R.string.IPAddress))){
+                    Toast.makeText(getBaseContext(), R.string.enterip,
+                            Toast.LENGTH_LONG).show();
+                }
+                else {
+                    command.setIpAddress(IPAdd.getText().toString());
+
+                    command = new Sender();
+                }
             }
         });
 
         close.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                command.done();
+                if(IPAdd.getText().equals(getString(R.string.IPAddress))){
+                    Toast.makeText(getBaseContext(), R.string.noconnection,
+                            Toast.LENGTH_LONG).show();
+                }
+                else
+                    command.done();
 
             }
         });

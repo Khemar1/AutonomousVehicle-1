@@ -28,7 +28,7 @@
         </FrameLayout>
 
         <TextView
-            android:text="JBK17"
+            android:text="@string/jbk17"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/tvApp"
@@ -37,7 +37,7 @@
             android:textStyle="normal|bold" />
 
         <TextView
-            android:text="Version 1.0.0"
+            android:text="@string/versionnum"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/tvVer"
@@ -46,7 +46,7 @@
             android:textStyle="normal|bold" />
 
         <TextView
-            android:text="Developers"
+            android:text="@string/developers"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/tvDev"
@@ -57,10 +57,11 @@
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="284dp">
+            android:layout_height="284dp"
+            android:weightSum="1">
 
             <TextView
-                android:text="Bilal"
+                android:text="@string/Bilal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView10"
@@ -69,7 +70,7 @@
                 android:layout_marginLeft="190dp" />
 
             <TextView
-                android:text="Jan"
+                android:text="@string/Jan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView9"
@@ -78,13 +79,14 @@
                 android:layout_marginLeft="190dp" />
 
             <TextView
-                android:text="Khemar"
-                android:layout_width="56dp"
+                android:text="@string/Khemar"
+                android:layout_width="95dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView8"
                 android:textStyle="normal|italic"
                 android:layout_marginLeft="180dp"
-                android:textAlignment="viewStart" />
+                android:textAlignment="viewStart"
+                android:layout_weight="0.07" />
         </LinearLayout>
 
     </LinearLayout>
