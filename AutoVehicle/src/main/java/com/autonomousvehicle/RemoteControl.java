@@ -4,7 +4,6 @@
 
 package com.autonomousvehicle;
 
-//import android.app.ActionBar;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -136,26 +135,26 @@ public class RemoteControl extends AppCompatActivity {
 
                     int direction = js.get8Direction();
                     if (direction == JoyStick.STICK_UP) {
-                       // command.send("upp");
+
                        directiontv.setText(R.string.up);
                     } else if (direction == JoyStick.STICK_UPRIGHT) {
-                       // command.send("pivrr");
+
                         directiontv.setText(R.string.upright);
                     } else if (direction == JoyStick.STICK_RIGHT) {
-                       // command.send("rightt");
+
                         directiontv.setText(R.string.right);
                     } else if (direction == JoyStick.STICK_DOWNRIGHT) {
                         directiontv.setText(R.string.downright);
                     } else if (direction == JoyStick.STICK_DOWN) {
-                       // command.send("downn");
+
                         directiontv.setText(R.string.down);
                     } else if (direction == JoyStick.STICK_DOWNLEFT) {
                         directiontv.setText(R.string.downleft);
                     } else if (direction == JoyStick.STICK_LEFT) {
                         directiontv.setText(R.string.left);
-                     //   command.send("leftt");
+
                     } else if (direction == JoyStick.STICK_UPLEFT) {
-                      //  command.send("pivll");
+
                         directiontv.setText(R.string.upleft);
                     } else if (direction == JoyStick.STICK_NONE) {
                         directiontv.setText("");
@@ -183,8 +182,7 @@ public class RemoteControl extends AppCompatActivity {
                 // User chose the "Settings" item, show the app settings UI...
                 return true;
 
-//            case android.R.id.home:
-//                RemoteControl.this.onBackPressed();
+
 
             case R.id.settings:
                 Intent setting = new Intent(RemoteControl.this, SettingsActivity.class);

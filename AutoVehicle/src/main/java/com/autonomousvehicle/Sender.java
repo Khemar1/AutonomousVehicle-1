@@ -24,13 +24,13 @@ class Sender extends Socket {
         try {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
             StrictMode.setThreadPolicy(policy);
-            //socket = new Socket("192.168.15.113", 40093);
+
             socket = new Socket(getIpAddress(), 40093);
             out = new PrintWriter(socket.getOutputStream(), true);
             remoteInput = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
         } catch (IOException e) {
-            //System.out.println("Could not send to " + machineName + ":"+ port);
+
             e.printStackTrace();
             System.exit(-1);
         }
@@ -47,7 +47,7 @@ class Sender extends Socket {
 
     void send(String msg) {
         out.println(msg);
-        //out.write(msg);
+
     }
 
     /*method to get the msg from server
@@ -58,7 +58,7 @@ class Sender extends Socket {
         try {
             msg = remoteInput.readLine();
             return msg;
-            //System.out.println("Msg from server: "+msg);
+
         } catch (Exception e) {
             // TODO: handle exception
         }
@@ -69,7 +69,7 @@ class Sender extends Socket {
     void done() {
         try {
             Sender.socket.close();
-            //System.out.println("Msg from server: "+msg);
+
         } catch (Exception e) {
             // TODO: handle exception
         }
