@@ -24,9 +24,6 @@ public class MenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
-
-
-
         Button map = (Button) findViewById(R.id.bMapping);
 
         map.setOnClickListener(new View.OnClickListener() {
