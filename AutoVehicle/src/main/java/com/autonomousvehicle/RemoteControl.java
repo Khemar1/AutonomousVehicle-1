@@ -104,7 +104,7 @@ public class RemoteControl extends AppCompatActivity {
 
                 if(IPAdd.getText().equals(getString(R.string.IPAddress))){
                     Toast.makeText(getBaseContext(), R.string.enterip,
-                            Toast.LENGTH_LONG).show();
+                            Toast.LENGTH_SHORT).show();
                     connected = false;
                 } else {
                     command.setIpAddress(IPAdd.getText().toString());
@@ -197,6 +197,8 @@ public class RemoteControl extends AppCompatActivity {
 
         }
     }
+
+
 
 
 }

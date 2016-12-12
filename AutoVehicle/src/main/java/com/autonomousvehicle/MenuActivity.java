@@ -62,8 +62,7 @@ public class MenuActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.logout:
-                //Intent logout = new Intent(MenuActivity.this, LoginActivity.class);
-                //startActivity(logout);
+
                 MenuActivity.this.finish();
                 return true;
 
@@ -78,11 +77,9 @@ public class MenuActivity extends AppCompatActivity {
                         (Context.LAYOUT_INFLATER_SERVICE);
                 final LinearLayout ll2 = (LinearLayout)inflater2.inflate(R.layout.activity_about, null, false);
 
-                //EditText ed = (EditText)findViewById(R.id.etIpAddress1);
-                //final CalendarView calendarView = (CalendarView)ll.findViewById(R.id.calendarID);
+
                 AlertDialog   alertDate2 = new AlertDialog.Builder(MenuActivity.this)
-                        // .setTitle("Event Calendar")
-                        //.setMessage("Click to schedule or view events.")
+
                         .setView(ll2)
                         .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int whichButton) {
@@ -91,7 +88,7 @@ public class MenuActivity extends AppCompatActivity {
                                 }
                         ).show();
 
-                //setContentView(R.layout.activity_settings);
+
 
                 return true;
 
