@@ -156,7 +156,7 @@ public class LoginActivity extends AppCompatActivity {
                 .setCancelable(false)
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface arg0, int arg1) {
-                        LoginActivity.super.onBackPressed();
+                        LoginActivity.this.finish();
                     }
                 }).create().show();
     }

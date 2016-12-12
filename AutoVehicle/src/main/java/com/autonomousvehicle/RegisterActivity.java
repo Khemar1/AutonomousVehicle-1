@@ -30,6 +30,7 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle(getString(R.string.Register));
 
         final EditText etname = (EditText) findViewById(R.id.etName);
@@ -84,9 +85,11 @@ public class RegisterActivity extends AppCompatActivity {
                                     JSONObject jsonResponse = new JSONObject(response);
                                     boolean success = jsonResponse.getBoolean("success");
 
+
                                     if (success) {
-                                        Intent intent = new Intent(getBaseContext(), LoginActivity.class);
-                                        startActivity(intent);
+//                                        Intent intent = new Intent(getBaseContext(), LoginActivity.class);
+//                                        startActivity(intent);
+                                        RegisterActivity.this.finish();
                                     } else {
                                         AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
                                         builder.setMessage(getString(R.string.registerfail))

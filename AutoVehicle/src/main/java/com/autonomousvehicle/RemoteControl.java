@@ -26,11 +26,9 @@ import android.widget.Toast;
 public class RemoteControl extends AppCompatActivity {
 
     RelativeLayout layout_joystick;
-    ImageView image_joystick, image_border;
-    TextView textView1, textView2, textView3, textView4, textView5;
-    boolean connected = false;
+    TextView directiontv;
     JoyStick js;
-
+    boolean connected;
     Sender command;
 
     @Override
@@ -41,11 +39,8 @@ public class RemoteControl extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        /*textView1 = (TextView) findViewById(R.id.textView1);
-        textView2 = (TextView) findViewById(R.id.textView2);
-        textView3 = (TextView) findViewById(R.id.textView3);
-        textView4 = (TextView) findViewById(R.id.textView4);
-        textView5 = (TextView) findViewById(R.id.textView5);*/
+        directiontv = (TextView) findViewById(R.id.directiontv);
+
         final TextView IPAdd = (TextView) findViewById(R.id.IpAdd);
         Button close = (Button) findViewById(R.id.bClose);
         final Button connect = (Button) findViewById(R.id.bConnect);
@@ -139,36 +134,32 @@ public class RemoteControl extends AppCompatActivity {
 
                     int direction = js.get8Direction();
                     if (direction == JoyStick.STICK_UP) {
-                        // command.send("upp");
-                        //textView5.setText("Direction : Up");
+                       // command.send("upp");
+                       directiontv.setText(getString(R.string.up));
                     } else if (direction == JoyStick.STICK_UPRIGHT) {
-                        // command.send("pivrr");
-                        // textView5.setText("Direction : Up Right");
+                       // command.send("pivrr");
+                        directiontv.setText(getString(R.string.upright));
                     } else if (direction == JoyStick.STICK_RIGHT) {
-                        // command.send("rightt");
-                        // textView5.setText("Direction : Right");
+                       // command.send("rightt");
+                        directiontv.setText(getString(R.string.right));
                     } else if (direction == JoyStick.STICK_DOWNRIGHT) {
-                        // textView5.setText("Direction : Down Right");
+                        directiontv.setText(getString(R.string.downright));
                     } else if (direction == JoyStick.STICK_DOWN) {
-                        // command.send("downn");
-                        //textView5.setText("Direction : Down");
+                       // command.send("downn");
+                        directiontv.setText(getString(R.string.down));
                     } else if (direction == JoyStick.STICK_DOWNLEFT) {
-                        //textView5.setText("Direction : Down Left");
+                        directiontv.setText(getString(R.string.downleft));
                     } else if (direction == JoyStick.STICK_LEFT) {
-                        //textView5.setText("Direction : Left");
-                        //   command.send("leftt");
+                        directiontv.setText(getString(R.string.left));
+                     //   command.send("leftt");
                     } else if (direction == JoyStick.STICK_UPLEFT) {
-                        //  command.send("pivll");
-                        //textView5.setText("Direction : Up Left");
+                      //  command.send("pivll");
+                        directiontv.setText(getString(R.string.upleft));
                     } else if (direction == JoyStick.STICK_NONE) {
-                        //textView5.setText("Direction : Center");
+                        directiontv.setText("");
                     }
                 } else if (arg1.getAction() == MotionEvent.ACTION_UP) {
-                    /*textView1.setText(R.string.x);
-                    textView2.setText(R.string.y);
-                    textView3.setText(R.string.angle);
-                    textView4.setText(R.string.distance);
-                    textView5.setText(R.string.direction);*/
+
                 }
                 return true;
             }
