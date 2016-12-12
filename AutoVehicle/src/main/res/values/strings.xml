@@ -27,7 +27,7 @@
     <string name="sign_up_for_an_account">Sign Up for an Account</string>
     <string name="remember_me">Remember me</string>
     <string name="connect">Connect</string>
-    <string name="enter_the_ip_address_of_the_robot">Enter the IP Address of the Robot</string>
+    <string name="enter_the_ip_address_of_the_robot">IP Address of the Robot</string>
     <string name="close_connection">Close Connection</string>
     <string name="noipsettings">Go To Settings!</string>
     <string name="wouldyou">Would you like to add an IP Address?</string>

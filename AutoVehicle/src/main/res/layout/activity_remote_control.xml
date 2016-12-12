@@ -75,16 +75,6 @@
         android:textColor="@android:color/background_light" />
 
     <Button
-        android:text="@string/connect"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/bConnect"
-        android:background="@android:color/holo_orange_dark"
-        android:textColor="@android:color/background_light"
-        android:layout_alignTop="@+id/bClose"
-        android:layout_centerHorizontal="true" />
-
-    <Button
         android:text="@string/close_connection"
         android:layout_width="116dp"
         android:layout_height="wrap_content"
@@ -94,18 +84,6 @@
         android:textColor="@android:color/background_light"
         android:layout_below="@+id/IpAdd"
         android:layout_alignEnd="@+id/tvInfo" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:id="@+id/IpAdd"
-        android:layout_marginTop="18dp"
-        android:textColor="@android:color/darker_gray"
-        android:textSize="18sp"
-        android:layout_below="@+id/tvInfo"
-        android:layout_alignStart="@+id/bConnect"
-        android:text="@string/IPAddress" />
 
     <TextView
         android:text="@string/direction"
@@ -129,5 +107,27 @@
         android:layout_alignBaseline="@+id/direction"
         android:layout_alignBottom="@+id/direction"
         android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:id="@+id/IpAdd"
+        android:layout_marginTop="20dp"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="18sp"
+        android:text="@string/IPAddress"
+        android:layout_below="@+id/tvInfo"
+        android:layout_alignEnd="@+id/tvInfo" />
+
+    <Button
+        android:text="@string/connect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/bConnect"
+        android:background="@android:color/holo_orange_dark"
+        android:textColor="@android:color/background_light"
+        android:layout_alignTop="@+id/bClose"
+        android:layout_toStartOf="@+id/tvInfo" />
 
 </RelativeLayout>
