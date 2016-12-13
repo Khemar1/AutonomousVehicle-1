@@ -1,6 +1,7 @@
 /**
  * Bilal Alfanous
  * N00994056
+ * JBK.17
  */
 package com.autonomousvehicle;
 
@@ -108,9 +109,8 @@ public class DrawView extends View {
 //        }
 
         for (int i = 0; i < arr.length; i++) {
-            for (int j = 0; j < 2; j++) {
-                canvas.drawPoint(arr[i][0], arr[i][1], paint);
-            }
+            canvas.drawLine(arr[i][0], arr[i][1], arr[i+1][0], arr[i+1][1], paint);
+            i++;
         }
     }
 
