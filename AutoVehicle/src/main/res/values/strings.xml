@@ -68,6 +68,9 @@
     <string name="jbk17" translatable="false">JBK17</string>
     <string name="versionnum">Version 1.0.0</string>
     <string name="go_to_settings">Go to Settings!</string>
+    <string name="turnon">Toggle ON</string>
+    <string name="toggleoff">Toggle OFF</string>
+    <string name="visible">Make Visible</string>
 
 
 </resources>

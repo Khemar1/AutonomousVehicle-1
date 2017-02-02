@@ -19,27 +19,48 @@ class Sender extends Socket {
     static PrintWriter out = null;
     static BufferedReader remoteInput = null;
     static String ipAddress = null;
+    public static boolean exit = false;
 
     public Sender() {
         try {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
             StrictMode.setThreadPolicy(policy);
 
+//            InetAddress add = new InetAddress.getByName();
+
             socket = new Socket(getIpAddress(), 40093);
-            out = new PrintWriter(socket.getOutputStream(), true);
-            remoteInput = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+           // out = new PrintWriter(socket.getOutputStream(), true);
+         //   remoteInput = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+
+
 
         } catch (IOException e) {
 
             e.printStackTrace();
             System.exit(-1);
+
+        }
+       finally{
+
+            if (socket!=null){
+                try{
+                    socket.close();
+                }catch (Exception e) {
+                    exit = true;
+                    setExit(exit);
+                }
+            }
         }
 
     }
 
+
+
     public static void setIpAddress(String ipAddress) {
         Sender.ipAddress = ipAddress;
     }
+
+
 
     public static String getIpAddress() {
         return ipAddress;
@@ -49,6 +70,10 @@ class Sender extends Socket {
         out.println(msg);
 
     }
+
+    public static void setExit(boolean exit){Sender.exit = exit;}
+
+    public boolean getExit(){ return exit;}
 
     /*method to get the msg from server
      * @return String msg

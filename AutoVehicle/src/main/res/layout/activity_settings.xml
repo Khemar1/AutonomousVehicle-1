@@ -37,6 +37,40 @@
             android:id="@+id/etIPAddress"
             android:hint="Enter IP Address"
             android:background="@android:color/transparent" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:text="@string/turnon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="84dp"
+                android:id="@+id/buttonon"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true" />
+
+            <Button
+                android:text="@string/toggleoff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:id="@+id/buttonoff"
+                android:layout_alignBaseline="@+id/buttonon"
+                android:layout_alignBottom="@+id/buttonon"
+                android:layout_toEndOf="@+id/buttonon" />
+
+            <Button
+                android:text="@string/visible"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="51dp"
+                android:id="@+id/visible"
+                android:layout_below="@+id/buttonon"
+                android:layout_alignStart="@+id/buttonon" />
+        </RelativeLayout>
     </LinearLayout>
 
 </RelativeLayout>

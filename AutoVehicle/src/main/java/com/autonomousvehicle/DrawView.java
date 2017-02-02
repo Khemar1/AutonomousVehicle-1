@@ -118,7 +118,7 @@ public class DrawView extends View {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            Toast.makeText(getContext(), "Json Data is downloading", Toast.LENGTH_LONG).show();
+            Toast.makeText(getContext(), "Json Data is downloading", Toast.LENGTH_SHORT).show();
 
         }
 

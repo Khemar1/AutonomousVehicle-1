@@ -8,8 +8,9 @@ import android.test.AndroidTestCase;
 
 public class TestLogin extends AndroidTestCase {
 
-    String username ="Jan";
-    String password=" ";
+  //  String username ="Jan";
+  //  String password=" ";
+
 
 
 
