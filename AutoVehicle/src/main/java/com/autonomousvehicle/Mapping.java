@@ -13,6 +13,8 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
+import android.os.AsyncTask;
+import android.os.StrictMode;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -24,9 +26,19 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.net.Socket;
+
 public class Mapping extends AppCompatActivity {
     DrawView drawView;
     Paint paint = new Paint();
+    static Socket socket = null;
+    static PrintWriter out = null;
+    static BufferedReader remoteInput = null;
+    public static String ipAddress = null;
+    public static boolean exit = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,12 +50,12 @@ public class Mapping extends AppCompatActivity {
         Button stop = (Button) findViewById(R.id.stop);
 
 
-        final TextView IPAdd = (TextView) findViewById(R.id.IpAdd);
+  //      final TextView IPAdd = (TextView) findViewById(R.id.IpAdd);
         SharedPreferences preferences2 = getSharedPreferences("ip", MODE_PRIVATE);
         String name = preferences2.getString("ip", "");
 
         if (!name.equalsIgnoreCase("")) {
-            IPAdd.setText(name);  /* Edit the value here*/
+    //        IPAdd.setText(name);  /* Edit the value here*/
         } else {
             // IPAdd.setText(R.string.noipsettings);
             String title = getString(R.string.noipsettings);
@@ -77,11 +89,6 @@ public class Mapping extends AppCompatActivity {
             // show it
             alertDialog.show();
         }
-
-
-
-
-
         //both on clicks dont work!!
         stop.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -98,5 +105,80 @@ public class Mapping extends AppCompatActivity {
 //            }
 //        });
     }
+        private class Serv extends AsyncTask<Void, Void, Void> {
 
+
+
+            protected Void doInBackground(Void...voids){
+
+                try {
+                    StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+                    StrictMode.setThreadPolicy(policy);
+
+                    socket = new Socket(getIpAddress(), 40093);
+
+                } catch (IOException e) {
+
+                    e.printStackTrace();
+                    System.exit(-1);
+
+                }
+                finally{
+
+                    if (socket!=null){
+                        try{
+                            socket.close();
+                        }catch (Exception e) {
+                            exit = true;
+                            setExit(exit);
+                        }
+                    }
+                }
+
+
+                return null;
+
+            }
+        }
+    public static void setIpAddress(String ipAddress) {
+        RemoteControl.ipAddress = ipAddress;
+    }
+
+    public static String getIpAddress() {
+        return ipAddress;
+    }
+
+    void send(String msg) {
+        out.println(msg);
+    }
+
+    public static void setExit(boolean exit){RemoteControl.exit = exit;}
+
+    public boolean getExit(){ return exit;}
+
+    /*method to get the msg from server
+     * @return String msg
+     * */
+    String getit() {
+        String msg = null;
+        try {
+            msg = remoteInput.readLine();
+            return msg;
+
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
+        return msg = "nothing received";
+    }
+
+    /*method to close the socket*/
+    void done() {
+        try {
+            socket.close();
+
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
+
+    }
 }

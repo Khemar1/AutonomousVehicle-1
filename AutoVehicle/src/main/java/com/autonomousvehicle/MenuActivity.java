@@ -45,6 +45,16 @@ public class MenuActivity extends AppCompatActivity {
             }
         });
 
+        Button bt = (Button) findViewById(R.id.bluetooth);
+
+        bt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent iBT = new Intent(MenuActivity.this, RemoteBTActivity.class);
+                startActivity(iBT);
+            }
+        });
+
     }
 
     @Override

@@ -19,16 +19,28 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Mapping" android:label="@string/bMapping" android:parentActivityName=".MenuActivity"/>
-        <activity android:name=".RemoteControl" android:parentActivityName=".MenuActivity"
-            android:label="@string/RemoteActivity"/>
-        <activity android:name=".RegisterActivity" android:parentActivityName=".LoginActivity"
-            android:label="@string/Register"/>
-        <activity android:name=".MenuActivity"
-            android:label="@string/mainmenu"/>
+        <activity
+            android:name=".Mapping"
+            android:label="@string/bMapping"
+            android:parentActivityName=".MenuActivity" />
+        <activity
+            android:name=".RemoteControl"
+            android:label="@string/RemoteActivity"
+            android:parentActivityName=".MenuActivity" />
+        <activity
+            android:name=".RegisterActivity"
+            android:label="@string/Register"
+            android:parentActivityName=".LoginActivity" />
+        <activity
+            android:name=".MenuActivity"
+            android:label="@string/mainmenu" />
         <activity
             android:name=".SettingsActivity"
             android:label="@string/settings" />
+        <activity android:name=".RemoteBTActivity"
+            android:label="@string/RemoteActivity"
+            android:parentActivityName=".MenuActivity"
+            ></activity>
     </application>
 
 </manifest>

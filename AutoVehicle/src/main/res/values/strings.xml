@@ -71,6 +71,7 @@
     <string name="turnon">Toggle ON</string>
     <string name="toggleoff">Toggle OFF</string>
     <string name="visible">Make Visible</string>
+    <string name="invalidIP">Invalid IP Address</string>
 
 
 </resources>

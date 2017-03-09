@@ -11,6 +11,8 @@ import android.bluetooth.BluetoothSocket;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
+import android.os.StrictMode;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -26,7 +28,13 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.ConnectException;
+import java.net.Socket;
+import java.util.UUID;
 
 public class RemoteControl extends AppCompatActivity {
 
@@ -34,7 +42,18 @@ public class RemoteControl extends AppCompatActivity {
     boolean connected = false;
     JoyStick js;
     TextView directiontv;
+    static UUID MYUUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
     BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+   //private BluetoothAdapter btAdapter = null;
+    //private BluetoothSocket btSocket = null;
+   // private OutputStream outStream = null;
+  //  static Socket socket = null;
+    static PrintWriter out = null;
+    static BufferedReader remoteInput = null;
+    public static String ipAddress = null;
+    public static boolean exit = false;
+    //Serv serv;
+
 
     Sender command;
 
@@ -44,6 +63,7 @@ public class RemoteControl extends AppCompatActivity {
         setContentView(R.layout.activity_remote_control);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+       // serv = new Serv();
 
         directiontv = (TextView) findViewById(R.id.directiontv);
 
@@ -107,22 +127,25 @@ public class RemoteControl extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if(IPAdd.getText().equals(getString(R.string.IPAddress))){
+
+           /*     if(IPAdd.getText().equals(getString(R.string.IPAddress))){
                     Toast.makeText(getBaseContext(), R.string.enterip,
                             Toast.LENGTH_SHORT).show();
                     connected = false;
                 } else {
+
                     command.setIpAddress(IPAdd.getText().toString());
 
                     command = new Sender();
-                    if (!command.getExit() )
+                    if (command.getExit()==0){
                         connected = true;
-                    else {
-                        Toast.makeText(getBaseContext(), R.string.noconnection,
-                                Toast.LENGTH_SHORT).show();
-                        connected = false;
                     }
-                }
+                    else
+                        Toast.makeText(getBaseContext(), R.string.invalidIP,
+                                Toast.LENGTH_SHORT).show();
+
+                    //connected = true;
+                }*/
             }
         });
 
@@ -148,24 +171,24 @@ public class RemoteControl extends AppCompatActivity {
 
                     int direction = js.get8Direction();
                     if (direction == JoyStick.STICK_UP) {
-
+                        command.send("upp");
                        directiontv.setText(R.string.up);
                     } else if (direction == JoyStick.STICK_UPRIGHT) {
 
                         directiontv.setText(R.string.upright);
                     } else if (direction == JoyStick.STICK_RIGHT) {
-
+                        command.send("rightt");
                         directiontv.setText(R.string.right);
                     } else if (direction == JoyStick.STICK_DOWNRIGHT) {
                         directiontv.setText(R.string.downright);
                     } else if (direction == JoyStick.STICK_DOWN) {
-
+                        command.send("downn");
                         directiontv.setText(R.string.down);
                     } else if (direction == JoyStick.STICK_DOWNLEFT) {
                         directiontv.setText(R.string.downleft);
                     } else if (direction == JoyStick.STICK_LEFT) {
                         directiontv.setText(R.string.left);
-
+                        command.send("downn");
                     } else if (direction == JoyStick.STICK_UPLEFT) {
 
                         directiontv.setText(R.string.upleft);
@@ -173,7 +196,7 @@ public class RemoteControl extends AppCompatActivity {
                         directiontv.setText("");
                     }
                 } else if (arg1.getAction() == MotionEvent.ACTION_UP) {
-
+                    directiontv.setText(null);
                 }
                 return true;
             }
@@ -181,59 +204,10 @@ public class RemoteControl extends AppCompatActivity {
 
     }
 
-/*
-    private class ConnectThread extends Thread {
-        private final BluetoothSocket mmSocket;
-        private final BluetoothDevice mmDevice;
 
-        public ConnectThread(BluetoothDevice device) {
-            // Use a temporary object that is later assigned to mmSocket
-            // because mmSocket is final.
-            BluetoothSocket tmp = null;
-            mmDevice = device;
 
-            try {
-                // Get a BluetoothSocket to connect with the given BluetoothDevice.
-                // MY_UUID is the app's UUID string, also used in the server code.
-                tmp = device.createRfcommSocketToServiceRecord(MY_UUID);
-            } catch (IOException e) {
-               // Log.e(TAG, "Socket's create() method failed", e);
-            }
-            mmSocket = tmp;
-        }
 
-        public void run() {
-            // Cancel discovery because it otherwise slows down the connection.
-            mBluetoothAdapter.cancelDiscovery();
 
-            try {
-                // Connect to the remote device through the socket. This call blocks
-                // until it succeeds or throws an exception.
-                mmSocket.connect();
-            } catch (IOException connectException) {
-                // Unable to connect; close the socket and return.
-                try {
-                    mmSocket.close();
-                } catch (IOException closeException) {
-                  //  Log.e(TAG, "Could not close the client socket", closeException);
-                }
-                return;
-            }
-
-            // The connection attempt succeeded. Perform work associated with
-            // the connection in a separate thread.
-           // manageMyConnectedSocket(mmSocket);
-        }
-
-        // Closes the client socket and causes the thread to finish.
-        public void cancel() {
-            try {
-                mmSocket.close();
-            } catch (IOException e) {
-                //Log.e(TAG, "Could not close the client socket", e);
-            }
-        }
-    }*/
 
 
     @Override

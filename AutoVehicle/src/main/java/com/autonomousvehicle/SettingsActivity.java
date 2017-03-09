@@ -22,9 +22,9 @@ import android.widget.Toast;
 import java.util.Set;
 
 public class SettingsActivity extends AppCompatActivity {
-//    SharedPreferences preferences;
- //   SharedPreferences.Editor editor;
-  //  EditText ipAddress;
+    SharedPreferences preferences;
+    SharedPreferences.Editor editor;
+    EditText ipAddress;
     Button b1,b2,b3;
     private BluetoothAdapter BA;
     private Set<BluetoothDevice> pairedDevices;
@@ -70,9 +70,9 @@ public class SettingsActivity extends AppCompatActivity {
                startActivityForResult(getVisible, 0);
            }
        });
-      /*  ipAddress = (EditText) findViewById(R.id.etIPAddress);
+        ipAddress = (EditText) findViewById(R.id.etIPAddress);
         preferences = getSharedPreferences("ip", MODE_PRIVATE);
-        editor = preferences.edit();*/
+        editor = preferences.edit();
     }
 
 
@@ -93,11 +93,11 @@ public class SettingsActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-          /*  case android.R.id.home:
+            case android.R.id.home:
                 editor.putString("ip",ipAddress.getText().toString());
                 //editor.apply();
                 editor.commit();
-                SettingsActivity.this.finish();*/
+                SettingsActivity.this.finish();
 
             default:
                 // If we got here, the user's action was not recognized.

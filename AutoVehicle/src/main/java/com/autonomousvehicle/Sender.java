@@ -14,33 +14,48 @@ import android.os.StrictMode;
 import java.io.*;
 import java.net.*;
 
+import static java.lang.System.exit;
+
 class Sender extends Socket {
     static Socket socket = null;
     static PrintWriter out = null;
     static BufferedReader remoteInput = null;
     static String ipAddress = null;
-    public static boolean exit = false;
+   // public static int exit = 0;
+    int num =0;
 
     public Sender() {
         try {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
             StrictMode.setThreadPolicy(policy);
 
-//            InetAddress add = new InetAddress.getByName();
+           // if(InetAddress.getByName(getIpAddress()).isReachable(0)) {
 
-            socket = new Socket(getIpAddress(), 40093);
-           // out = new PrintWriter(socket.getOutputStream(), true);
-         //   remoteInput = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+           //    if(InetAddress.getByName(getIpAddress()).isReachable(0)) {
+             //       exit = 1;
+               //     setExit(exit);
+                //}
+            try{
+                    socket = new Socket(getIpAddress(), 40093);
+            }
+            catch (ConnectException e){
+            //    setExit(1);
+                exit(0);
+            }
+            out = new PrintWriter(socket.getOutputStream(), true);
+            remoteInput = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
 
 
         } catch (IOException e) {
 
             e.printStackTrace();
-            System.exit(-1);
+          // exit = 1;
+            //setExit(1);
+            exit(-1);
 
         }
-       finally{
+      /* finally{
 
             if (socket!=null){
                 try{
@@ -50,7 +65,7 @@ class Sender extends Socket {
                     setExit(exit);
                 }
             }
-        }
+        }*/
 
     }
 
@@ -71,9 +86,9 @@ class Sender extends Socket {
 
     }
 
-    public static void setExit(boolean exit){Sender.exit = exit;}
+  //  public static void setExit(int exit){Sender.exit = exit;}
 
-    public boolean getExit(){ return exit;}
+   // public static int getExit(){ return exit;}
 
     /*method to get the msg from server
      * @return String msg
