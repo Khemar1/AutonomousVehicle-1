@@ -28,11 +28,13 @@ public class RemoteBTActivity extends AppCompatActivity {
     BluetoothAdapter mBluetoothAdapter;
     BluetoothSocket mmSocket;
     BluetoothDevice mmDevice;
-    PrintWriter mmOutputStream;
+    OutputStream mmOutputStream;
     InputStream mmInputStream;
     JoyStick js;
     TextView directiontv;
     String a;
+    boolean connected;
+    String msg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +68,7 @@ public class RemoteBTActivity extends AppCompatActivity {
                     Toast.makeText(getBaseContext(), "Connection not established with the robot", Toast.LENGTH_LONG).show();
                     e.printStackTrace();
                 }
+                connected = true;
 
 
 
@@ -76,13 +79,16 @@ public class RemoteBTActivity extends AppCompatActivity {
         close.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               try {
-                   mmSocket.close();
-               }
-               catch (IOException e){
-                   Toast.makeText(getBaseContext(), R.string.noconnection,
-                           Toast.LENGTH_SHORT).show();
-               }
+                if(connected){
+                    try{
+                        mmSocket.close();
+                    }catch(IOException e){
+                        e.printStackTrace();
+                    }
+                }else {
+                    Toast.makeText(getBaseContext(), R.string.noconnection,
+                            Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -94,24 +100,30 @@ public class RemoteBTActivity extends AppCompatActivity {
 
                     int direction = js.get8Direction();
                     if (direction == JoyStick.STICK_UP) {
-                        //     mmOutputStream.println("upp");
+                        if (connected) {
+                            sendMsg("upp");
+                        }
                         directiontv.setText(R.string.up);
                     } else if (direction == JoyStick.STICK_UPRIGHT) {
 
                         directiontv.setText(R.string.upright);
                     } else if (direction == JoyStick.STICK_RIGHT) {
-                        // mmOutputStream.println("rightt");
+                        if (connected)
+                            sendMsg("rightt");
                         directiontv.setText(R.string.right);
                     } else if (direction == JoyStick.STICK_DOWNRIGHT) {
                         directiontv.setText(R.string.downright);
                     } else if (direction == JoyStick.STICK_DOWN) {
-                        //   mmOutputStream.println("downn");
+                        if (connected)
+                           sendMsg("downn");
                         directiontv.setText(R.string.down);
                     } else if (direction == JoyStick.STICK_DOWNLEFT) {
                         directiontv.setText(R.string.downleft);
                     } else if (direction == JoyStick.STICK_LEFT) {
+                        if (connected)
+                            sendMsg("leftt");
                         directiontv.setText(R.string.left);
-                        //  mmOutputStream.println("downn");
+                        //
                     } else if (direction == JoyStick.STICK_UPLEFT) {
 
                         directiontv.setText(R.string.upleft);
@@ -175,7 +187,7 @@ public class RemoteBTActivity extends AppCompatActivity {
 
         }
         finally {
-            mmOutputStream = new PrintWriter(mmSocket.getOutputStream());
+            mmOutputStream = mmSocket.getOutputStream();
             mmInputStream = mmSocket.getInputStream();
 
         }
@@ -185,6 +197,14 @@ public class RemoteBTActivity extends AppCompatActivity {
         // myLabel.setText("Bluetooth Opened");
     }
 
+    void sendMsg(String msg1){
+        try{
+            mmOutputStream.write(msg1.getBytes());
+        }catch (IOException e){
+            exit(0);
+        }
+
+    }
 
 
 

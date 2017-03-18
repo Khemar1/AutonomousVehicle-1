@@ -128,7 +128,7 @@ public class RemoteControl extends AppCompatActivity {
             public void onClick(View v) {
 
 
-           /*     if(IPAdd.getText().equals(getString(R.string.IPAddress))){
+                if(IPAdd.getText().equals(getString(R.string.IPAddress))){
                     Toast.makeText(getBaseContext(), R.string.enterip,
                             Toast.LENGTH_SHORT).show();
                     connected = false;
@@ -137,15 +137,15 @@ public class RemoteControl extends AppCompatActivity {
                     command.setIpAddress(IPAdd.getText().toString());
 
                     command = new Sender();
-                    if (command.getExit()==0){
+                   // if (command.getExit()==0){
                         connected = true;
-                    }
-                    else
-                        Toast.makeText(getBaseContext(), R.string.invalidIP,
-                                Toast.LENGTH_SHORT).show();
+                    //}
+                    //else
+                      //  Toast.makeText(getBaseContext(), R.string.invalidIP,
+                        //        Toast.LENGTH_SHORT).show();
 
                     //connected = true;
-                }*/
+                }
             }
         });
 
@@ -171,24 +171,29 @@ public class RemoteControl extends AppCompatActivity {
 
                     int direction = js.get8Direction();
                     if (direction == JoyStick.STICK_UP) {
-                        command.send("upp");
+                        if (connected)
+                            command.send("upp");
                        directiontv.setText(R.string.up);
                     } else if (direction == JoyStick.STICK_UPRIGHT) {
 
                         directiontv.setText(R.string.upright);
                     } else if (direction == JoyStick.STICK_RIGHT) {
-                        command.send("rightt");
+                        if (connected)
+                            command.send("rightt");
                         directiontv.setText(R.string.right);
                     } else if (direction == JoyStick.STICK_DOWNRIGHT) {
                         directiontv.setText(R.string.downright);
                     } else if (direction == JoyStick.STICK_DOWN) {
-                        command.send("downn");
+                        if (connected)
+                            command.send("downn");
                         directiontv.setText(R.string.down);
                     } else if (direction == JoyStick.STICK_DOWNLEFT) {
                         directiontv.setText(R.string.downleft);
                     } else if (direction == JoyStick.STICK_LEFT) {
+                        if (connected)
+                            command.send("downn");
                         directiontv.setText(R.string.left);
-                        command.send("downn");
+
                     } else if (direction == JoyStick.STICK_UPLEFT) {
 
                         directiontv.setText(R.string.upleft);
