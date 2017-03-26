@@ -12,17 +12,19 @@
     android:background="@drawable/backgrond">
 
     <FrameLayout
-        android:layout_width="match_parent"
         android:id="@+id/two_D_map_view"
+        android:layout_width="match_parent"
         android:layout_height="400dp"
+        android:background="@color/white"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true">
 
-        <com.autonomousvehicle.DrawView
-            android:layout_height="357dp"
-            android:layout_width="match_parent"
-            android:background="@color/white" />
-
+        <TextView
+            android:id="@+id/mapview"
+            android:layout_width="386dp"
+            android:layout_height="match_parent"
+            android:text="TextView"
+            android:visibility="invisible" />
     </FrameLayout>
 
     <RelativeLayout

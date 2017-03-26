@@ -72,6 +72,7 @@
     <string name="toggleoff">Toggle OFF</string>
     <string name="visible">Make Visible</string>
     <string name="invalidIP">Invalid IP Address</string>
+    <string name="BTQuestion">Bluetooth isn\'t enabled, would you like to go to settings to turn it on?</string>
 
 
 </resources>

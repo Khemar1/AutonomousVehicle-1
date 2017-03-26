@@ -3,9 +3,13 @@ package com.autonomousvehicle;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -16,7 +20,6 @@ import android.widget.Toast;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.io.PrintWriter;
 import java.util.Set;
 import java.util.UUID;
 
@@ -35,6 +38,7 @@ public class RemoteBTActivity extends AppCompatActivity {
     String a;
     boolean connected;
     String msg;
+    BluetoothFinder finder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +49,32 @@ public class RemoteBTActivity extends AppCompatActivity {
 
         final Button connect = (Button) findViewById(R.id.bConnect);
         Button close = (Button) findViewById(R.id.bClose);
+        String title = getString(R.string.noipsettings);
+        String msg = getString(R.string.BTQuestion);
+        String yes = getString(R.string.yes);
+        String no = getString(R.string.later);
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+        // set title
+        alertDialogBuilder.setTitle(title);
+        // set dialog message
+        alertDialogBuilder
+                .setMessage(msg)
+                .setCancelable(false)
+                .setPositiveButton(yes, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        Intent in = new Intent(RemoteBTActivity.this, SettingsActivity.class);
+                        startActivity(in);
+                    }
+                })
+
+                .setNegativeButton(no, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+
+                    }
+                });
+        // create alert dialog
+        final AlertDialog alertDialog = alertDialogBuilder.create();
 
         layout_joystick = (RelativeLayout) findViewById(R.id.layout_joystick1);
 
@@ -57,18 +87,33 @@ public class RemoteBTActivity extends AppCompatActivity {
         js.setOffset(90);
         js.setMinimumDistance(50);
 
+        if (!isBluetoothAvailable())
+        {
+            alertDialog.show();
+        }
+
         connect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 a = "raspberrypi";
-                try {
-                    findBT();
-                } catch (IOException e) {
-                    Toast.makeText(getBaseContext(), "Connection not established with the robot", Toast.LENGTH_LONG).show();
-                    e.printStackTrace();
+                if (isBluetoothAvailable())
+                {
+                    try {
+                        //finder.findBT(a);
+                        findBT();
+                        Toast.makeText(getBaseContext(), "Trying to connect..", Toast.LENGTH_SHORT).show();
+                    } catch (IOException e) {
+                        Toast.makeText(getBaseContext(), "Connection not established with the robot", Toast.LENGTH_LONG).show();
+                        e.printStackTrace();
+                    }
+                    Toast.makeText(getBaseContext(), "Connected!!", Toast.LENGTH_SHORT).show();
+                    connected = true;
                 }
-                connected = true;
+                else
+                    Toast.makeText(getBaseContext(), "Go to settings & turn on bluetooth", Toast.LENGTH_LONG).show();
+
+
 
 
 
@@ -80,8 +125,12 @@ public class RemoteBTActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(connected){
+                   // finder.close();
                     try{
+                        Toast.makeText(getBaseContext(), "Closing connection!", Toast.LENGTH_LONG).show();
+                        sendMsg("stop");
                         mmSocket.close();
+                        connected = false;
                     }catch(IOException e){
                         e.printStackTrace();
                     }
@@ -100,28 +149,29 @@ public class RemoteBTActivity extends AppCompatActivity {
 
                     int direction = js.get8Direction();
                     if (direction == JoyStick.STICK_UP) {
-                        if (connected) {
-                            sendMsg("upp");
-                        }
+                        if (connected)
+                            sendMsg("up");
                         directiontv.setText(R.string.up);
                     } else if (direction == JoyStick.STICK_UPRIGHT) {
 
                         directiontv.setText(R.string.upright);
                     } else if (direction == JoyStick.STICK_RIGHT) {
                         if (connected)
-                            sendMsg("rightt");
+                            sendMsg("right");
                         directiontv.setText(R.string.right);
                     } else if (direction == JoyStick.STICK_DOWNRIGHT) {
                         directiontv.setText(R.string.downright);
                     } else if (direction == JoyStick.STICK_DOWN) {
                         if (connected)
-                           sendMsg("downn");
+                           sendMsg("down");
+
                         directiontv.setText(R.string.down);
                     } else if (direction == JoyStick.STICK_DOWNLEFT) {
                         directiontv.setText(R.string.downleft);
                     } else if (direction == JoyStick.STICK_LEFT) {
                         if (connected)
-                            sendMsg("leftt");
+                            sendMsg("left");
+
                         directiontv.setText(R.string.left);
                         //
                     } else if (direction == JoyStick.STICK_UPLEFT) {
@@ -140,6 +190,11 @@ public class RemoteBTActivity extends AppCompatActivity {
 
 
 
+    }
+
+    public static boolean isBluetoothAvailable() {
+        final BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+        return (bluetoothAdapter != null && bluetoothAdapter.isEnabled());
     }
 
     void findBT() throws IOException
@@ -206,7 +261,33 @@ public class RemoteBTActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.about:
+                // User chose the "Settings" item, show the app settings UI...
+                return true;
+
+
+
+            case R.id.settings:
+                Intent setting = new Intent(RemoteBTActivity.this, SettingsActivity.class);
+                startActivity(setting);
+
+            default:
+                // If we got here, the user's action was not recognized.
+                // Invoke the superclass to handle it.
+                return super.onOptionsItemSelected(item);
+
+        }
+    }
 
 
 }
