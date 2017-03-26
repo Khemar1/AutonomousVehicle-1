@@ -13,55 +13,60 @@
 
     <FrameLayout
         android:id="@+id/two_D_map_view"
-        android:layout_height="match_parent"
-        android:layout_width="400dp"
-        android:background="@color/white">
-
-        <com.autonomousvehicle.DrawView
-            android:layout_height="378dp"
-            android:layout_width="match_parent"
-            android:background="@color/white" />
-
-    </FrameLayout>
-
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:background="@color/white"
         android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_width="150dp"
-        android:weightSum="1">
+        android:layout_alignParentStart="true">
 
         <TextView
-            android:text="IP Address"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/IPAdd"
-            android:textSize="24sp" />
+            android:id="@+id/mapview"
+            android:layout_width="386dp"
+            android:layout_height="match_parent"
+            android:text="TextView"
+            android:visibility="invisible" />
+    </FrameLayout>
 
-        <Button
-            android:text="@string/start"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:id="@+id/start"
-            android:background="@android:color/holo_orange_dark"
-            android:textColor="@color/colorFABText"
-            android:elevation="4dp"
-            android:layout_marginTop="50dp"
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="66dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/two_D_map_view">
+
+      <!--  <TextView
+            android:text="IP Address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_toEndOf="@+id/two_D_map_view" />
+            android:layout_alignStart="@+id/start"
+            android:id="@+id/IPAdd"
+            android:textSize="18sp" />-->
 
         <Button
             android:text="@string/stop"
-            android:layout_height="50dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:id="@+id/stop"
             android:background="@android:color/holo_orange_dark"
             android:textColor="@color/colorFABText"
             android:elevation="4dp"
-            android:layout_toEndOf="@+id/stop"
-            android:layout_width="match_parent"
-            tools:layout_marginTop="25dp"
-            android:layout_marginTop="50dp" />
-    </LinearLayout>
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="24dp" />
+
+        <Button
+            android:text="@string/start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/start"
+            android:background="@android:color/holo_orange_dark"
+            android:textColor="@color/colorFABText"
+            android:elevation="4dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="42dp" />
+
+    </RelativeLayout>
 
 </RelativeLayout>
