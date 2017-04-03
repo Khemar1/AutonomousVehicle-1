@@ -175,7 +175,7 @@ public class Mapping extends AppCompatActivity {
         /**
             This class is used to send the map to the database.
             It accepts a string which is the map and if it gets a
-            successful JSON response it sends the map the database
+            successful JSON response it sends the map the database.
          */
 
         Response.Listener<String> responseListener = new Response.Listener<String>() {
