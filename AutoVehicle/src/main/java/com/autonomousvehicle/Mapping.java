@@ -31,13 +31,20 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.toolbox.Volley;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.BufferedInputStream;
 import java.io.BufferedReader;
+import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.net.Socket;
@@ -59,9 +66,12 @@ public class Mapping extends AppCompatActivity {
     BluetoothDevice mmDevice;
     OutputStream mmOutputStream;
     InputStream mmInputStream;
-    String a,getmap;
+    String a;
+    String x= "yes";
+    String y = "no";
     boolean connected;
     TextView map;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -111,15 +121,15 @@ public class Mapping extends AppCompatActivity {
                     try {
                         findBT();
                     } catch (IOException e) {
-                        Toast.makeText(getBaseContext(), "Connection not established with the robot", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getBaseContext(), R.string.notestablished, Toast.LENGTH_LONG).show();
                         e.printStackTrace();
                     }
-                    Toast.makeText(getBaseContext(), "Mapping started", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getBaseContext(), R.string.mappingst, Toast.LENGTH_LONG).show();
                     connected = true;
                     sendMsg("go");
                 }
                 else
-                    Toast.makeText(getBaseContext(), "Go to settings & turn on bluetooth", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getBaseContext(), R.string.bluetoothnotif, Toast.LENGTH_LONG).show();
 
 
             }
@@ -130,32 +140,83 @@ public class Mapping extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(connected){
-                    Toast.makeText(getBaseContext(), "Stopping car", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getBaseContext(), R.string.stopping, Toast.LENGTH_SHORT).show();
                     sendMsg("stop");
                     try{
-                        getmap = mmInputStream.toString();
-                        map.setText(getmap);
+                        //getmap = mmInputStream.toString();
                         map.setVisibility(View.VISIBLE);
+                        DataInputStream in = new DataInputStream(new BufferedInputStream(mmInputStream));
+                        byte[] bytes = new byte[1024];
+                        in.read(bytes);
+
+                        String s = new String(bytes);
+
+                        map.setText(s);
+
+                        SendMap(s);
 
                         mmSocket.close();
                     }catch(IOException e){
                         e.printStackTrace();
                     }
-                    Toast.makeText(getBaseContext(), "Map retrieved!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getBaseContext(), R.string.mappingMsg, Toast.LENGTH_LONG).show();
                 }else {
                     Toast.makeText(getBaseContext(), R.string.noconnection,
                             Toast.LENGTH_SHORT).show();
+
                 }
             }
         });
 
 
+    }
 
-        new GetContacts().execute();
+    public void SendMap(String x){
+        /**
+            This class is used to send the map to the database.
+            It accepts a string which is the map and if it gets a
+            successful JSON response it sends the map the database
+         */
+
+        Response.Listener<String> responseListener = new Response.Listener<String>() {
+
+            @Override
+            public void onResponse(String response) {
+                try {
+                    JSONObject jsonResponse = new JSONObject(response);
+                    boolean success = jsonResponse.getBoolean("success");
+
+                    if (success) {
+                        Toast.makeText(getBaseContext(), "It works!!!",
+                                Toast.LENGTH_SHORT).show();
+                        //  Intent intent = new Intent(getBaseContext(), LoginActivity.class);
+                        // startActivity(intent);
+                    } else {
+                        AlertDialog.Builder builder = new AlertDialog.Builder(Mapping.this);
+                        builder.setMessage(getString(R.string.unable))
+                                .setNegativeButton(R.string.retry, null)
+                                .create()
+                                .show();
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        };
+
+        MapRequest mapRequest = new MapRequest(x, responseListener);
+        RequestQueue queue = Volley.newRequestQueue(Mapping.this);
+        queue.add(mapRequest);
 
     }
 
+
     public static boolean isBluetoothAvailable() {
+        /*
+            This class checks if the bluetooth adapter is enabled
+         */
+
         final BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
         return (bluetoothAdapter != null && bluetoothAdapter.isEnabled());
     }
@@ -226,90 +287,6 @@ public class Mapping extends AppCompatActivity {
     }
 
 
-
-    private class GetContacts extends AsyncTask<Void, Void, Void> {
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-            Toast.makeText(getBaseContext(), "Json Data is downloading", Toast.LENGTH_SHORT).show();
-
-        }
-
-        @Override
-        protected Void doInBackground(Void... arg0) {
-            HttpHandler sh = new HttpHandler();
-            // Making a request to url and getting response
-            String url = "http://myloginappsite.site88.net/getxy.php";
-            jsonStr = sh.makeServiceCall(url);
-
-            Log.e(TAG, "Response from url: " + jsonStr);
-
-            cord.add(0, jsonStr);
-
-            if (jsonStr != null) {
-                try {
-                    JSONObject jsonObj = new JSONObject(jsonStr);
-
-                    // Getting JSON Array node
-                    JSONArray contacts = jsonObj.getJSONArray("response");
-
-                    // looping through All Contacts
-                    for (int i = 0; i < contacts.length(); i++) {
-                        JSONObject c = contacts.getJSONObject(i);
-                        String id = c.getString("success");
-                        String x = c.getString("x");
-                        String y = c.getString("y");
-
-                        // tmp hash map for single contact
-                        contact = new HashMap<>();
-
-                        // adding each child node to HashMap key => value
-                        contact.put("id", id);
-                        contact.put("x", x);
-                        contact.put("y", y);
-
-
-                        // adding contact to contact list
-                        // contactList.add(contact);
-                    }
-                } catch (final JSONException e) {
-                    Log.e(TAG, "Json parsing error: " + e.getMessage());
-//                    runOnUiThread(new Runnable() {
-//                        @Override
-//                        public void run() {
-//                            Toast.makeText(getApplicationContext(),
-//                                    "Json parsing error: " + e.getMessage(),
-//                                    Toast.LENGTH_LONG).show();
-//                        }
-//                    });
-
-                }
-
-            } else {
-                Log.e(TAG, "Couldn't get json from server.");
-//                runOnUiThread(new Runnable() {
-//                    @Override
-//                    public void run() {
-//                        Toast.makeText(getApplicationContext(),
-//                                "Couldn't get json from server. Check LogCat for possible errors!",
-//                                Toast.LENGTH_LONG).show();
-//                    }
-//                });
-            }
-
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(Void result) {
-            super.onPostExecute(result);
-//            ListAdapter adapter = new SimpleAdapter(MainActivity.this, contactList,
-//                    R.layout.list_item, new String[]{ "email","mobile"},
-//                    new int[]{R.id.email, R.id.mobile});
-//            lv.setAdapter(adapter);
-
-        }
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

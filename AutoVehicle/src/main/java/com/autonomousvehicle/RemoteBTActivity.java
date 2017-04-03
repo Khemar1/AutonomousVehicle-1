@@ -102,16 +102,16 @@ public class RemoteBTActivity extends AppCompatActivity {
                     try {
                         //finder.findBT(a);
                         findBT();
-                        Toast.makeText(getBaseContext(), "Trying to connect..", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getBaseContext(), R.string.trying, Toast.LENGTH_SHORT).show();
                     } catch (IOException e) {
-                        Toast.makeText(getBaseContext(), "Connection not established with the robot", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getBaseContext(), R.string.notestablished, Toast.LENGTH_LONG).show();
                         e.printStackTrace();
                     }
-                    Toast.makeText(getBaseContext(), "Connected!!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getBaseContext(), R.string.connected, Toast.LENGTH_SHORT).show();
                     connected = true;
                 }
                 else
-                    Toast.makeText(getBaseContext(), "Go to settings & turn on bluetooth", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getBaseContext(), R.string.bluetoothnotif, Toast.LENGTH_LONG).show();
 
 
 
@@ -127,7 +127,7 @@ public class RemoteBTActivity extends AppCompatActivity {
                 if(connected){
                    // finder.close();
                     try{
-                        Toast.makeText(getBaseContext(), "Closing connection!", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getBaseContext(), R.string.closing, Toast.LENGTH_LONG).show();
                         sendMsg("stop");
                         mmSocket.close();
                         connected = false;

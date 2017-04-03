@@ -22,11 +22,13 @@
         <activity
             android:name=".Mapping"
             android:label="@string/bMapping"
-            android:parentActivityName=".MenuActivity" />
+            android:parentActivityName=".MenuActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".RemoteControl"
             android:label="@string/RemoteActivity"
-            android:parentActivityName=".MenuActivity" />
+            android:parentActivityName=".MenuActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".RegisterActivity"
             android:label="@string/Register"
@@ -37,10 +39,11 @@
         <activity
             android:name=".SettingsActivity"
             android:label="@string/settings" />
-        <activity android:name=".RemoteBTActivity"
+        <activity
+            android:name=".RemoteBTActivity"
             android:label="@string/RemoteActivity"
             android:parentActivityName=".MenuActivity"
-            ></activity>
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

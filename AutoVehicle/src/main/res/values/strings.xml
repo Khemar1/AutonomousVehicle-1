@@ -6,7 +6,7 @@
     <string name="bRemote">Remote</string>
     <string name="remoteMsg">Control the car</string>
     <string name="bMapping">Mapping</string>
-    <string name="mappingMsg">Get the mapped area from hardware</string>
+    <string name="mappingMsg">Map received!</string>
     <string name="logout">logout</string>
 
     <string name="password">Password</string>
@@ -73,6 +73,14 @@
     <string name="visible">Make Visible</string>
     <string name="invalidIP">Invalid IP Address</string>
     <string name="BTQuestion">Bluetooth isn\'t enabled, would you like to go to settings to turn it on?</string>
+    <string name="notestablished">Connection not established with the robot</string>
+    <string name="mappingst">Mapping started</string>
+    <string name="bluetoothnotif">Go to settings and turn bluetooth on</string>
+    <string name="stopping">Stopping car..</string>
+    <string name="connected">Connected!!</string>
+    <string name="trying">Attemping connection....</string>
+    <string name="closing">Closing connection!</string>
+    <string name="unable">Unable to send map :(</string>
 
 
 </resources>

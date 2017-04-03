@@ -24,7 +24,6 @@
     <string name="left">À gauche</string>
     <string name="mainmenu">Menu principal</string>
     <string name="logout">Se déconnecter</string>
-    <string name="mappingMsg">Récupérer la zone mappée</string>
     <string name="menumsg">Veuillez sélectionner le mode que vous aimeriez utiliser la voiture dans</string>
     <string name="missingname">Le nom est manquant</string>
     <string name="missingpassword">Mot de passe manquant</string>
