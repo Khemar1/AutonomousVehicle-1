@@ -81,6 +81,10 @@
     <string name="trying">Attemping connection....</string>
     <string name="closing">Closing connection!</string>
     <string name="unable">Unable to send map :(</string>
+    <string name="get_the_mapped_area">Get the mapped area from Hardware</string>
+    <string name="remote_control_bt">Remote Control(BT)</string>
+    <string name="control_the_car_with_bluetooth">Control the car with bluetooth</string>
+    <string name="senttodb">Map sent to database</string>
 
 
 </resources>

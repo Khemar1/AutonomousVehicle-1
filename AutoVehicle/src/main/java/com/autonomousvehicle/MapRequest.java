@@ -16,12 +16,13 @@ public class MapRequest extends StringRequest {
 
     private Map<String, String> params;
 
-    public MapRequest( String x, Response.Listener<String> listener){
+    public MapRequest( String x,String y, Response.Listener<String> listener){
 
         super(Request.Method.POST, REGISTER_REQUEST_URL, listener, null);
         params = new HashMap<>();
 
         params.put("x", x);
+        params.put("y",y);
 
     }
 

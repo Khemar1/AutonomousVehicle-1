@@ -67,7 +67,7 @@ public class Mapping extends AppCompatActivity {
     OutputStream mmOutputStream;
     InputStream mmInputStream;
     String a;
-    String x= "yes";
+  //  String x= "yes";
     String y = "no";
     boolean connected;
     TextView map;
@@ -187,7 +187,7 @@ public class Mapping extends AppCompatActivity {
                     boolean success = jsonResponse.getBoolean("success");
 
                     if (success) {
-                        Toast.makeText(getBaseContext(), "It works!!!",
+                        Toast.makeText(getBaseContext(), R.string.senttodb,
                                 Toast.LENGTH_SHORT).show();
                         //  Intent intent = new Intent(getBaseContext(), LoginActivity.class);
                         // startActivity(intent);
@@ -205,7 +205,7 @@ public class Mapping extends AppCompatActivity {
             }
         };
 
-        MapRequest mapRequest = new MapRequest(x, responseListener);
+        MapRequest mapRequest = new MapRequest(x,y, responseListener);
         RequestQueue queue = Volley.newRequestQueue(Mapping.this);
         queue.add(mapRequest);
 

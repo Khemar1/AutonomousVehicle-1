@@ -51,14 +51,14 @@ tools:context="com.autonomousvehicle.MenuActivity"
             android:textColor="@android:color/background_light" />
 
         <TextView
-            android:text="@string/mappingMsg"
+            android:text="@string/get_the_mapped_area"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/tvMappingMsg"
             android:textAlignment="center" />
 
         <Button
-            android:text="Remote Control(BT)"
+            android:text="@string/remote_control_bt"
             android:id="@+id/bluetooth"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -66,7 +66,7 @@ tools:context="com.autonomousvehicle.MenuActivity"
             android:background="@android:color/holo_orange_dark"
             android:textColor="@android:color/background_light"/>
         <TextView
-            android:text="Control the car with bluetooth"
+            android:text="@string/control_the_car_with_bluetooth"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/tvMap"
