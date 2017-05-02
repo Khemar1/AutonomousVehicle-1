@@ -1,13 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_login"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.autonomousvehicle.Login">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools" android:id="@+id/activity_login"
+android:layout_width="match_parent" android:layout_height="match_parent"
+android:paddingBottom="@dimen/activity_vertical_margin"
+android:paddingLeft="@dimen/activity_horizontal_margin"
+android:paddingRight="@dimen/activity_horizontal_margin"
+android:paddingTop="@dimen/activity_vertical_margin"
+tools:context="com.autonomousvehicle.LoginActivity"
+    android:background="@drawable/loginp"
+    android:orientation="vertical">
 
-</RelativeLayout>
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="195dp">
+
+    </GridLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="1">
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:hint="Username"
+            android:id="@+id/etUsername"
+            android:textColor="@android:color/white"
+            android:textColorHint="@android:color/darker_gray"
+            />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:ems="10"
+            android:id="@+id/etPassword"
+            android:hint="Password"
+            android:textColor="@android:color/white"
+            android:textColorHint="@android:color/darker_gray" />
+
+        <Switch
+            android:text="@string/remember_me"
+            android:layout_width="148dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/sRemember"
+            android:textColor="@android:color/background_light"
+            android:textAlignment="textStart"
+            android:layout_marginLeft="180dp" />
+
+        <Button
+            android:text="@string/sign_in"
+            android:layout_width="284dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/bSignIn"
+            android:background="@android:color/holo_orange_dark"
+            android:textAlignment="center"
+            android:layout_marginLeft="38dp"
+            android:layout_marginTop="8dp"
+            android:textColor="@android:color/background_light" />
+
+        <TextView
+            android:text="@string/sign_up_for_an_account"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/background_light"
+
+            android:id="@+id/tvRegister"
+            android:layout_marginTop="3dp"
+            android:layout_marginLeft="111dp" />
+
+
+    </LinearLayout>
+</LinearLayout>

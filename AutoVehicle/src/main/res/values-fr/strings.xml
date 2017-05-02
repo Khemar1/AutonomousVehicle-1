@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Auto Vehicle</string>
+    <string name="abMsg">Êtes-vous sûr de vouloir quitter?</string>
+    <string name="Register">Registre</string>
+    <string name="abTitle">Quitter l\'application</string>
+    <string name="about">Sur</string>
+    <string name="angle">Angle:</string>
+    <string name="bMapping">Cartographie</string>
+    <string name="bRemote">Éloigné</string>
+    <string name="bothreq">Les deux champs doivent être entrés</string>
+    <string name="center">Centre</string>
+    <string name="close_connection">Fermer la connexion</string>
+    <string name="connect">Relier</string>
+    <string name="direction">Direction:</string>
+    <string name="distance">Distance:</string>
+    <string name="doublecheck">Veuillez vérifier et essayer à nouveau</string>
+    <string name="down">Vers le bas</string>
+    <string name="downleft">En bas à gauche</string>
+    <string name="downright">En bas à droite</string>
+    <string name="enter_the_ip_address_of_the_robot">Entrez l\'adresse IP</string>
+    <string name="exitquestion">Voulez-vous sortir?</string>
+    <string name="later">Plus tard</string>
+    <string name="left">À gauche</string>
+    <string name="mainmenu">Menu principal</string>
+    <string name="logout">Se déconnecter</string>
+    <string name="menumsg">Veuillez sélectionner le mode que vous aimeriez utiliser la voiture dans</string>
+    <string name="missingname">Le nom est manquant</string>
+    <string name="missingpassword">Mot de passe manquant</string>
+    <string name="missingreenter">Les mots de passe ne correspondent pas</string>
+    <string name="missinguser">Nom d\'utilisateur manquant</string>
+    <string name="no">Non</string>
+    <string name="noipsettings">Aller aux paramètres</string>
+    <string name="ok">D\'accord</string>
+    <string name="password">Mot de passe</string>
+    <string name="passwordreq">Mot de passe requis</string>
+    <string name="recordmatch">Le nom d\'utilisateur et le mot de passe que vous avez entrés ne correspondent pas à nos enregistrements</string>
+    <string name="registerfail">Échec de l\'enregistrement</string>
+    <string name="remember_me">Souviens-toi de moi</string>
+    <string name="remoteMsg">Contrôler la voiture</string>
+    <string name="retry">Recommencez</string>
+    <string name="right">Droite</string>
+    <string name="settings">Paramètres</string>
+    <string name="sign_in">Se connecter</string>
+    <string name="sign_up_for_an_account">Inscrivez-vous pour un compte</string>
+    <string name="start">Démarrer</string>
+    <string name="stop">Arrêtez</string>
+    <string name="sure">Êtes-vous sûr de vouloir quitter?</string>
+    <string name="up">Up</string>
+    <string name="upleft">En haut à gauche</string>
+    <string name="upright">En haut à droite</string>
+    <string name="usernamereq">Nom d\'utilisateur est nécessaire</string>
+    <string name="wouldyou">Voulez-vous ajouter une adresse IP</string>
+    <string name="yes">Oui</string>
+    <string name="noconnection">Pas de connexion à fermer!</string>
+    <string name="enterip">Entrez l\'adresse IP dans les paramètres!</string>
+    <string name="versionnum">Version 1.0.0</string>
+    <string name="developers" translatable="false">Développeurs</string>
+    <string name="RemoteActivity">Télécommande</string>
+    <string name="IPAddress" translatable="false">adresse IP</string>
+
+
+</resources>

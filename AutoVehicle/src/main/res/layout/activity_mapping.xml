@@ -8,6 +8,65 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.autonomousvehicle.Mapping">
+    tools:context="com.autonomousvehicle.Mapping"
+    android:background="@drawable/backgrond">
+
+    <FrameLayout
+        android:id="@+id/two_D_map_view"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:background="@color/white"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
+
+        <TextView
+            android:id="@+id/mapview"
+            android:layout_width="386dp"
+            android:layout_height="match_parent"
+            android:text="TextView"
+            android:visibility="invisible" />
+    </FrameLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="66dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/two_D_map_view">
+
+      <!--  <TextView
+            android:text="IP Address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignStart="@+id/start"
+            android:id="@+id/IPAdd"
+            android:textSize="18sp" />-->
+
+        <Button
+            android:text="@string/stop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/stop"
+            android:background="@android:color/holo_orange_dark"
+            android:textColor="@color/colorFABText"
+            android:elevation="4dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="24dp" />
+
+        <Button
+            android:text="@string/start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/start"
+            android:background="@android:color/holo_orange_dark"
+            android:textColor="@color/colorFABText"
+            android:elevation="4dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="42dp" />
+
+    </RelativeLayout>
 
 </RelativeLayout>
